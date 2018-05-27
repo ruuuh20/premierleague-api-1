@@ -7,6 +7,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home'
 
 class App extends Component {
+
+  state = {
+    redirect: false
+  }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    this.setState({
+      redirect: true
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -14,7 +26,7 @@ class App extends Component {
         <div className="container">
           <Background />
         </div>
-        <Modal />
+        <Modal redirect={this.state.redirect} onclick={this.handleClick}/>
       <Route path="/home" component={Home} />
       </div>
       </Router>
