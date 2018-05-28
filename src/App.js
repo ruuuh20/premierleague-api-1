@@ -24,7 +24,7 @@ class App extends Component {
       <Router>
       <div>
         <div className="container">
-          <Background />
+        
         </div>
         <Modal redirect={this.state.redirect} onclick={this.handleClick}/>
       <Route path="/home" component={Home} />
