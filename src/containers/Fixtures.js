@@ -23,6 +23,7 @@ class Fixtures extends Component {
         </div>
       )
     })
+  // console.log(json);
     this.setState({
       fixtures: fixtures
     })
