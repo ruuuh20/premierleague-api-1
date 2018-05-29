@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './fixtures.css'
+import Fixture from '../components/Fixture'
 
 class Fixtures extends Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class Fixtures extends Component {
   }
 
   componentDidMount() {
-  //   const token = '44caba9c4c56410185f1561dfed18948'
+    const token = '44caba9c4c56410185f1561dfed18948'
   //   fetch('https://api.football-data.org//v1/competitions/445/fixtures',  {
   //     headers: { 'X-Auth-Token': token },
   //   }
@@ -33,22 +35,27 @@ class Fixtures extends Component {
   // }
   //
   // )
-  axios.get('https://jsonplaceholder.typicode.com/posts')
+
+  axios.get('https://api.football-data.org//v1/competitions/445/fixtures', { headers: { 'X-Auth-Token': token }})
     .then(response =>  {
+      // console.log(response.data.fixtures)
       this.setState({
-        fixtures: response.data
+        fixtures: response.data.fixtures
       })
     })
+    .catch((error) => {
+        console.log('error ' + error);
+      });
   }
 
   render() {
     const fixtures = this.state.fixtures.map(fixture => {
-      return <h1>{fixture.title}</h1>
-      // console.log(fixture.title)
+      return <Fixture key={fixture.id} homeTeamName={fixture.homeTeamName} />
+      console.log(fixture.title)
     })
 
     return (
-      <div className="container">
+      <div className="fixtures">
       {fixtures}
       </div>
     )

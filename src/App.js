@@ -5,6 +5,7 @@ import Background from './components/Background'
 import Modal from './components/Modal'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home'
+import Fixtures from './containers/Fixtures'
 
 class App extends Component {
 
@@ -24,10 +25,11 @@ class App extends Component {
       <Router>
       <div>
         <div className="container">
-        
+
         </div>
-        <Modal redirect={this.state.redirect} onclick={this.handleClick}/>
+        
       <Route path="/home" component={Home} />
+      <Route exact path="/fixtures" component={Fixtures} />
       </div>
       </Router>
     );
