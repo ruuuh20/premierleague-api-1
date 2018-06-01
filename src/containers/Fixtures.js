@@ -38,7 +38,8 @@ class Fixtures extends Component {
 
   axios.get('https://api.football-data.org//v1/competitions/445/fixtures', { headers: { 'X-Auth-Token': token }})
     .then(response =>  {
-      // console.log(response.data.fixtures)
+
+
       this.setState({
         fixtures: response.data.fixtures
       })
@@ -50,7 +51,7 @@ class Fixtures extends Component {
 
   render() {
     const fixtures = this.state.fixtures.map(fixture => {
-      return <Fixture key={fixture.id} homeTeamName={fixture.homeTeamName} />
+      return <Fixture key={fixture.id} homeTeamName={fixture.homeTeamName} awayTeamName={fixture.awayTeamName} />
       console.log(fixture.title)
     })
 

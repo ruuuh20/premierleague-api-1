@@ -27,9 +27,9 @@ class App extends Component {
         <div className="container">
 
         </div>
-        
-      <Route path="/home" component={Home} />
-      <Route exact path="/fixtures" component={Fixtures} />
+
+
+      <Route path="/" component={Fixtures} />
       </div>
       </Router>
     );
