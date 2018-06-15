@@ -3,6 +3,7 @@ import './Main.css'
 import MainDisplay from '../components/MainDisplay'
 import axios from 'axios';
 import Team from '../components/Team'
+import TeamSection from '../components/TeamSection'
 
 class Main extends Component {
   state = {
@@ -23,15 +24,15 @@ class Main extends Component {
 
   render() {
     const teams = this.state.teams.map(team => {
-      return <Team name={team.strTeam} />
+      return <Team key={team.id} name={team.strTeam} />
     }
 
     )
     return (
       <div>
         <MainDisplay />
+        <TeamSection teams={teams} />
 
-        {teams}
 
 
 
