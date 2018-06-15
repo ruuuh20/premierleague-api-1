@@ -3,7 +3,8 @@
     padding: 16px;
     text-align: center;
     border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
+    box-shadow: 0 3px 5px #ccc;
+    background-color: #0080a8;
     margin: 10px;
     box-sizing: border-box;
     cursor: pointer;

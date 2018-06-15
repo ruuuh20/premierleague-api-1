@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import './fixture.css'
 
 const fixture = (props) => (
-  <article className="fixture">
+
+
+
+  <article className="fixture" onClick={props.clicked}>
     <h1>{props.homeTeamName}</h1>
-    <h4>vs.</h4>
+    <p>vs.</p>
     <h1>{props.awayTeamName}</h1>
     <div className="info">
-      <div>Author</div>
+      <div>{props.status}</div>
     </div>
   </article>
 )

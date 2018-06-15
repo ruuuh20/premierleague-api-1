@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TeamsList from '../components/TeamsList';
 import Fixtures from './Fixtures'
+import './Home.css'
+import FixtureInfo from '../components/FixtureInfo'
 
 
 class Home extends Component {
@@ -14,9 +16,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
         <h1>Fixtures 2017/2018</h1>
         <Fixtures />
+        <section>
+          <FixtureInfo id={this.state.selectedId}/>
+        </section>
 
       </div>
     )
