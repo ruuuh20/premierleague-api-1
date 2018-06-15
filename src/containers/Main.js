@@ -7,7 +7,8 @@ import TeamSection from '../components/TeamSection'
 
 class Main extends Component {
   state = {
-    teams: []
+    teams: [],
+    teamId: null
 
   }
 
@@ -22,20 +23,31 @@ class Main extends Component {
 
   }
 
+  handleTeamClick = (id) => {
+    this.setState({
+      teamId: id
+    })
+  }
+
   render() {
     const teams = this.state.teams.map(team => {
-      return <Team key={team.id} name={team.strTeam} />
-    }
+      return <Team
+        key={team.idTeam}
+        name={team.strTeam}
+        teamClicked={() => this.handleTeamClick(team.idTeam)}
+        />
+      }
 
     )
     return (
       <div>
-        <MainDisplay />
-        <TeamSection teams={teams} />
 
-
-
-
+        <section>
+        {teams}
+        </section>
+        <section>
+          <MainDisplay id={this.state.teamId}/>
+          </section>
       </div>
     )
   }

@@ -4,4 +4,11 @@
   height: 50px;
   box-sizing: border-box;
   padding: 10px 0;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+.team:hover,
+.team:active {
+    background-color: #C0DDF5;
 }

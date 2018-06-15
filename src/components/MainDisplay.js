@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './MainDisplay.css'
 
-const MainDisplay = props => {
+class MainDisplay extends Component {
 
-  return (
-    <div className="main-display">
-      Team info
-    </div>
-  )
+
+  render() {
+    let teamPage = <p>Hello</p>
+    if (this.props.id) {
+      teamPage = (
+        <div>
+          <h1> Title </h1>
+
+        </div>
+      )
+    }
+
+    return (
+      <div className="main-display">
+        {teamPage}
+      </div>
+    )
+
+
+  }
+
 
 }
 
