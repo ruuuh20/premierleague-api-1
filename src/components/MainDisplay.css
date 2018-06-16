@@ -1,5 +1,27 @@
 .main-display {
   width: 100%;
-  background-color: #ccc;
+  /* background-color: #ccc; */
   height: 700px;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+.row {
+  width: 100%;
+}
+
+.column {
+  width: 50%;
+  float: left;
+
+}
+
+.next-row {
+  clear: both;
+}
+
+.main-row h2 {
+  font-size: 5em;
 }
