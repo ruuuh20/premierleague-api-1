@@ -29,6 +29,83 @@ h3 {
 .main-row h2 {
   font-size: 5em;
 } */
-.arsenal {
-  background-color: red;
+.Arsenal {
+  background-color: #EC0C1C;
+  color: #063672;
 }
+
+.Bournemouth {
+  background-color: #D41E2A;
+  color: #000
+}
+.Brighton {
+  background-color: #0A56A3;
+  color: #F8BC1B;
+}
+.Burnley {
+  background-color: #80234C;
+  color: #91D2F2;
+}
+.Chelsea {
+  background-color: #034694;
+  color: #DBA111;
+}
+.Crystal-Palace {
+  background-color: #1B458F;
+  color: #A7A5A6;
+}
+.Everton {
+  background-color: #063A99;
+  color: #ffffff;
+}
+.Huddersfield-Town{
+  background-color: #0E63AD;
+  color: #ffffff;
+}
+.Leicester-City{
+  background-color: #1358A1;
+  color: #FAB92C;;
+}
+.Liverpool {
+  background-color: #E0202C;
+  color: #19A78E;
+}
+.Manchester-City {
+  background-color: #99C5E7;
+  color: #022A5D;
+}
+.Man-United {
+  background-color: #DC1F29;
+  color: #FAE935;
+}
+.Newcastle {
+  background-color: #000000;
+  color: #ffffff;
+}
+.Southampton {
+  background-color: #D41E29;
+  color: #FAE935;
+}
+.Stoke {
+  background-color: #D0122D;
+  color: #001F61;
+}
+.Swansea {
+  background-color: #121212;
+  color: #ffffff;
+}
+.Tottenham {
+  background-color: #11214B;
+  color: #ffffff;
+}
+.Watford {
+  background-color: #FEEB00;
+  color: #E40F18;
+}
+.West-Brom {
+  background-color: #122F67;
+  color: #ffffff;
+}
+.West-Ham {
+  background-color: #7A263A;
+  color: #1BB1E7;

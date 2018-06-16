@@ -84,8 +84,65 @@ class MainDisplay extends Component {
       )
     }
     let classes = [];
-      if (this.state.firstPage.name === 'Arsenal') {
-      classes.push('arsenal')
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Arsenal') {
+      classes.push('Arsenal')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Bournemouth') {
+      classes.push('Bournemouth')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Brighton') {
+      classes.push('Brighton')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Burnley') {
+      classes.push('Burnley')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Chelsea') {
+      classes.push('Brighton')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Crystal Palace') {
+      classes.push('Crystal-Palace')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Everton') {
+      classes.push('Everton')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Huddersfield Town') {
+      classes.push('Huddersfield-Town')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Leicester') {
+      classes.push('Leicester')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Liverpool') {
+      classes.push('Liverpool')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man City') {
+      classes.push('Manchester-City')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man United') {
+      classes.push('Man-United')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Newcastle') {
+      classes.push('Newcastle')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Southampton') {
+      classes.push('Southampton')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Stoke') {
+      classes.push('Stoke')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Swansea') {
+      classes.push('Swansea')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Tottenham') {
+      classes.push('Tottenham')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Watford') {
+      classes.push('Watford')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'West Brom') {
+      classes.push('West-Brom')
+    }
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'West-Ham') {
+      classes.push('West-Ham')
     }
 
 
@@ -98,7 +155,7 @@ class MainDisplay extends Component {
         <div className={classes}>
           <div className="row">
             <div className="column">
-              <h1>{this.state.firstPage.name}</h1>
+              <h2>{this.state.firstPage.name}</h2>
             </div>
             <div className="column">
                 <img src={this.state.firstPage.badge} alt=""/>
