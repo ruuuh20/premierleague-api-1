@@ -20,7 +20,6 @@ class Main extends Component {
           teams: response.data.teams
         })
       })
-
   }
 
   handleTeamClick = (id) => {

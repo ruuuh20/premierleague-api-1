@@ -3,10 +3,14 @@
   /* background-color: #ccc; */
   height: 700px;
 }
-
+/*
 h1 {
   font-size: 6em;
 }
+
+h3 {
+  font-size: 3em;
+} */
 
 .row {
   width: 100%;
@@ -21,7 +25,10 @@ h1 {
 .next-row {
   clear: both;
 }
-
+/*
 .main-row h2 {
   font-size: 5em;
+} */
+.arsenal {
+  background-color: red;
 }

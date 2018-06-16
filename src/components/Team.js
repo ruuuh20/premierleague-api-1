@@ -3,7 +3,7 @@ import './Team.css'
 
 const Team = (props) => (
   <div className="team" onClick={props.teamClicked}>
-    <h3>{props.name}</h3>
+    <h4>{props.name}</h4>
 
   </div>
 )

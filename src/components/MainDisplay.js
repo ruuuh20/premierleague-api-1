@@ -18,7 +18,7 @@ class MainDisplay extends Component {
       stadium: null,
       stadiumLocation: null
     }
-  }
+  };
 
   componentDidUpdate() {
 //if id is valid
@@ -37,39 +37,30 @@ class MainDisplay extends Component {
                 },
                 isSecondPage: false
 
-
-
               })
             })
           }
     }
-
   }
 
   clickToNext = () => {
     console.log("hi")
     this.setState({
 
-
         isSecondPage: true,
         secondPage: {
           stadium: this.state.teamInfo.strStadium,
           stadiumLocation: this.state.teamInfo.strStadiumLocation
-
         }
-
-
     })
-
   }
-
 
   render() {
     let teamPage = (
       <div className="row main-row">
-      <h2>Want to know just enough to keep a conversation going?</h2>
-      <h2>Learn just the basics and further</h2>
-      <h2>Pick a team!</h2>
+      <h3>Want to sound smart about the Premier League?</h3>
+      <h3>You can learn the basics and join the conversation.</h3>
+      <h3>Pick a team!</h3>
       </div>
     )
 
@@ -84,7 +75,7 @@ class MainDisplay extends Component {
           <div className="column">
             <h1>Stadium: {this.state.secondPage.stadium}</h1>
           </div>
-          <div className="column">
+          <div className="next-row">
               <h1>{this.state.secondPage.stadiumLocation}</h1>
           </div>
 
@@ -92,30 +83,37 @@ class MainDisplay extends Component {
         </div>
       )
     }
+    let classes = [];
+      if (this.state.firstPage.name === 'Arsenal') {
+      classes.push('arsenal')
+    }
 
 
     let alternate = ""
     if (this.state.teamInfo && this.state.teamInfo.strAlternate) {
-      alternate = "Also referred to as " + this.state.firstPage.name
+      alternate = "Also referred to as " + this.state.firstPage.alternate
     }
     if (this.props.id) {
       teamPage = (
-        <div className="row">
-          <div className="column">
-            <h1>hi{this.state.firstPage.name}</h1>
-          </div>
-          <div className="column">
-              <img src={this.state.firstPage.badge} alt=""/>
+        <div className={classes}>
+          <div className="row">
+            <div className="column">
+              <h1>{this.state.firstPage.name}</h1>
+            </div>
+            <div className="column">
+                <img src={this.state.firstPage.badge} alt=""/>
+            </div>
           </div>
 
-          <div className="next-row">
-            <h1>{alternate}</h1>
-            <h1>Manager: {this.state.firstPage.manager}</h1>
-          </div>
+            <div className="next-row">
+              <h1>{alternate}</h1>
+              <h1>Manager: {this.state.firstPage.manager}</h1>
+            </div>
 
         </div>
       )
     }
+
 
     return (
       <div className="main-display">
@@ -123,14 +121,11 @@ class MainDisplay extends Component {
       <div>
       {this.state.isSecondPage === true ? <div>{second}</div> :<div>{teamPage}</div>}
 
-
         </div>
         <Button clicked={this.clickToNext}>More</Button>
       </TeamWrapper>
       </div>
     )
-
-
   }
 
 
