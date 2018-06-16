@@ -1,6 +1,11 @@
-.button {
+.more-button {
   background-color: transparent;
-  border: none;
+  color: #fff;
+  border: #fff 3px solid;
   outline: none;
-  padding: 10px;
+  padding: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
 }

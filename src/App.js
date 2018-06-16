@@ -25,11 +25,6 @@ class App extends Component {
     return (
       <Router>
       <div>
-        <div className="container">
-
-        </div>
-
-
       <Route path="/" component={Main} />
       </div>
       </Router>

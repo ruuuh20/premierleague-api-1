@@ -56,34 +56,9 @@ class MainDisplay extends Component {
   }
 
   render() {
-    let teamPage = (
-      <div className="row main-row">
-      <h3>Want to sound smart about the Premier League?</h3>
-      <h3>You can learn the basics and join the conversation.</h3>
-      <h3>Pick a team!</h3>
-      </div>
-    )
 
-    if (this.props.id) {
-      teamPage = <p>Loading</p>
-    }
-    let second = ""
-    if (this.state.isSecondPage === true) {
-
-      second = (
-        <div className="row">
-          <div className="column">
-            <h1>Stadium: {this.state.secondPage.stadium}</h1>
-          </div>
-          <div className="next-row">
-              <h1>{this.state.secondPage.stadiumLocation}</h1>
-          </div>
-
-
-        </div>
-      )
-    }
     let classes = [];
+
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Arsenal') {
       classes.push('Arsenal')
     }
@@ -146,6 +121,37 @@ class MainDisplay extends Component {
     }
 
 
+    let teamPage = (
+      <div className="row main-row">
+      <h3>Want to sound smart about the Premier League?</h3>
+      <h3>You can learn the basics and join the conversation.</h3>
+      <h3>Pick a team!</h3>
+      </div>
+    )
+
+    if (this.props.id) {
+      teamPage = <p>Loading</p>
+    }
+    let second = ""
+    if (this.state.isSecondPage === true) {
+
+      second = (
+        <div className={classes}>
+        <div className="page-row">
+        <div className="row">
+
+            <h1>Stadium: {this.state.secondPage.stadium}</h1>
+
+          <div className="next-row">
+              <h1>Location: {this.state.secondPage.stadiumLocation}</h1>
+          </div>
+        </div>
+        <Button clicked={this.clickToNext}>Tell me more!</Button>
+        </div>
+        </div>
+      )
+    }
+
     let alternate = ""
     if (this.state.teamInfo && this.state.teamInfo.strAlternate) {
       alternate = "Also referred to as " + this.state.firstPage.alternate
@@ -153,6 +159,8 @@ class MainDisplay extends Component {
     if (this.props.id) {
       teamPage = (
         <div className={classes}>
+        <div className="page-row">
+
           <div className="row">
             <div className="column">
               <h2>{this.state.firstPage.name}</h2>
@@ -167,6 +175,8 @@ class MainDisplay extends Component {
               <h1>Manager: {this.state.firstPage.manager}</h1>
             </div>
 
+            <Button clicked={this.clickToNext}>Tell me more!</Button>
+        </div>
         </div>
       )
     }
@@ -178,8 +188,7 @@ class MainDisplay extends Component {
       <div>
       {this.state.isSecondPage === true ? <div>{second}</div> :<div>{teamPage}</div>}
 
-        </div>
-        <Button clicked={this.clickToNext}>More</Button>
+      </div>
       </TeamWrapper>
       </div>
     )

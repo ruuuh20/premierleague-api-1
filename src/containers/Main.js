@@ -41,12 +41,13 @@ class Main extends Component {
     return (
       <div>
 
-        <section>
+        <section className="team-top">
         {teams}
         </section>
-        <section>
+        <section className="bottom">
           <MainDisplay id={this.state.teamId}/>
-          </section>
+        </section>
+
       </div>
     )
   }

@@ -1,7 +1,7 @@
 .main-display {
   width: 100%;
-  /* background-color: #ccc; */
-  height: 700px;
+
+  /* height: 700px; */
 }
 /*
 h1 {
@@ -25,10 +25,19 @@ h3 {
 .next-row {
   clear: both;
 }
-/*
-.main-row h2 {
-  font-size: 5em;
-} */
+
+.column img {
+  width: 250px;
+  height: 250px;
+}
+
+.main-row {
+  background-color: #38003c;
+  color: #00ff85;
+  padding: 12px;
+  font-size: 48px;
+  height: 100vh;
+}
 .Arsenal {
   background-color: #EC0C1C;
   color: #063672;
@@ -109,3 +118,10 @@ h3 {
 .West-Ham {
   background-color: #7A263A;
   color: #1BB1E7;
+}
+
+.page-row {
+  padding: 12px;
+  font-size: 50px;
+  height: 100vh;
+}
