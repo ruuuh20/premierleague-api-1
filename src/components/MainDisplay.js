@@ -7,6 +7,7 @@ import Button from './UI/Button'
 class MainDisplay extends Component {
   state = {
     teamInfo: null,
+    isFirstPage: this.props.isFirstPage,
     firstPage: {
       name: null,
       manager: null,
@@ -18,13 +19,15 @@ class MainDisplay extends Component {
       stadium: null,
       stadiumLocation: null
     },
-    isThirdPage: false,
+    isThirdPage: this.props.isThirdPage,
     thirdPage: {
       player1: null,
       player2: null
     }
 
   };
+
+baseState = this.state
 
   componentDidUpdate() {
 //if id is valid
@@ -46,6 +49,7 @@ class MainDisplay extends Component {
                 },
                 isSecondPage: false,
                 thirdPage: {
+
                   player1: playerRes.data.player[0].strPlayer,
                   player2: playerRes.data.player[1].strPlayer
                 }
@@ -69,8 +73,10 @@ class MainDisplay extends Component {
   clickToThird = () => {
     this.setState({
         isSecondPage: false,
-        isThirdPage: true
+        isThirdPage: true,
+        isFirstPage: false
     })
+    // this.setState(this.baseState)
   }
 
   render() {
@@ -173,8 +179,14 @@ class MainDisplay extends Component {
     let third = ""
     if (this.state.isThirdPage === true) {
       third = (
-        <div>
-        <h1>Hello</h1>
+        <div className={classes}>
+        <div className="page-row">
+        <div className="row">
+          <h1>Players to know:</h1>
+            <p>{this.state.thirdPage.player1}</p>
+            <p>{this.state.thirdPage.player2}</p>
+        </div>
+        </div>
         </div>
       )
     }
@@ -219,7 +231,7 @@ class MainDisplay extends Component {
       return (
         <div>{second}</div>
       )
-    } 
+    }
     else {
       return (
         <div>{teamPage}</div>

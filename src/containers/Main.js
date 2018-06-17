@@ -8,7 +8,9 @@ import TeamSection from '../components/TeamSection'
 class Main extends Component {
   state = {
     teams: [],
-    teamId: null
+    teamId: null,
+    isFirstPage: false,
+    isThirdPage: false
 
   }
 
@@ -24,7 +26,9 @@ class Main extends Component {
 
   handleTeamClick = (id) => {
     this.setState({
-      teamId: id
+      teamId: id,
+      isFirstPage: true,
+      isThirdPage: false
     })
   }
 
@@ -45,7 +49,7 @@ class Main extends Component {
         {teams}
         </section>
         <section className="bottom">
-          <MainDisplay id={this.state.teamId}/>
+          <MainDisplay id={this.state.teamId} isFirstPage={this.state.isFirstPage} isThirdPage={this.state.isThirdPage}/>
         </section>
 
       </div>
