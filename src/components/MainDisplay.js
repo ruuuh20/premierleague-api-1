@@ -17,41 +17,59 @@ class MainDisplay extends Component {
     secondPage: {
       stadium: null,
       stadiumLocation: null
+    },
+    isThirdPage: false,
+    thirdPage: {
+      player1: null,
+      player2: null
     }
+
   };
 
   componentDidUpdate() {
 //if id is valid
     if (this.props.id) {
       if (!this.state.teamInfo || (this.state.teamInfo && this.state.teamInfo.idTeam != this.props.id)) {
-          axios.get('https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=' + this.props.id)
-            .then(response => {
-              // console.log(response.data.teams[0])
+        axios.all([
+          axios.get('https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=' + this.props.id),
+          axios.get('https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=' + this.props.id)
+        ])
+            .then(axios.spread((teamRes, playerRes) => {
+              // console.log(playerRes.data.player[0].strPlayer)
               this.setState({
-                teamInfo: response.data.teams[0],
+                teamInfo: teamRes.data.teams[0],
                 firstPage: {
-                  name: response.data.teams[0].strTeam,
-                  manager: response.data.teams[0].strManager,
-                  alternate: response.data.teams[0].strAlternate,
-                  badge: response.data.teams[0].strTeamBadge
+                  name: teamRes.data.teams[0].strTeam,
+                  manager: teamRes.data.teams[0].strManager,
+                  alternate: teamRes.data.teams[0].strAlternate,
+                  badge: teamRes.data.teams[0].strTeamBadge
                 },
-                isSecondPage: false
+                isSecondPage: false,
+                thirdPage: {
+                  player1: playerRes.data.player[0].strPlayer,
+                  player2: playerRes.data.player[1].strPlayer
+                }
 
               })
-            })
+            }))
           }
     }
   }
 
   clickToNext = () => {
-    console.log("hi")
     this.setState({
-
         isSecondPage: true,
         secondPage: {
           stadium: this.state.teamInfo.strStadium,
           stadiumLocation: this.state.teamInfo.strStadiumLocation
         }
+    })
+  }
+
+  clickToThird = () => {
+    this.setState({
+        isSecondPage: false,
+        isThirdPage: true
     })
   }
 
@@ -146,8 +164,17 @@ class MainDisplay extends Component {
               <h1>Location: {this.state.secondPage.stadiumLocation}</h1>
           </div>
         </div>
-        <Button clicked={this.clickToNext}>Tell me more!</Button>
+        <Button clicked={this.clickToThird}>Tell me more!</Button>
         </div>
+        </div>
+      )
+    }
+
+    let third = ""
+    if (this.state.isThirdPage === true) {
+      third = (
+        <div>
+        <h1>Hello</h1>
         </div>
       )
     }
@@ -181,20 +208,25 @@ class MainDisplay extends Component {
       )
     }
 
+    // {this.state.isSecondPage === true ? <div>{second}</div> :<div>{teamPage}</div>}
+    // {(this.state.isThirdPage === true && this.state.isSecondPage === false) ? :<div></div>}
 
-    return (
-      <div className="main-display">
-      <TeamWrapper>
-      <div>
-      {this.state.isSecondPage === true ? <div>{second}</div> :<div>{teamPage}</div>}
+    if (this.state.isThirdPage === true) {
+      return (
+        <div>{third}</div>
+      )
+    }; if (this.state.isSecondPage === true) {
+      return (
+        <div>{second}</div>
+      )
+    } 
+    else {
+      return (
+        <div>{teamPage}</div>
+      )
+    }
 
-      </div>
-      </TeamWrapper>
-      </div>
-    )
-  }
 
-
-}
+} }
 
 export default MainDisplay;
