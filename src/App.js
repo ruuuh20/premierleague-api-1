@@ -6,7 +6,8 @@ import Modal from './components/Modal'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home'
 import Fixtures from './containers/Fixtures'
-import Main from './containers/Main'
+import Main from './containers/Main';
+import NewsFeed from './containers/NewsFeed'
 
 class App extends Component {
 
@@ -25,7 +26,8 @@ class App extends Component {
     return (
       <Router>
       <div>
-      <Route path="/" component={Main} />
+      <Route path="/" exact component={Main} />
+      <Route path="/news" exact component={NewsFeed} />
       </div>
       </Router>
     );
