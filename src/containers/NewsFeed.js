@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NewsFeed.css'
+import Modal from '../components/Modal'
 
 class NewsFeed extends Component {
   constructor() {
@@ -9,8 +10,21 @@ class NewsFeed extends Component {
       recentNewsPost: {
         name: '',
         url: ''
-      }
+      },
+      modaling: false
     }
+  }
+
+  handleBadgeClick = () => {
+    this.setState({
+      modaling: true
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      modaling: false
+    })
   }
 
   FetchDataFromRssFeed() {
@@ -46,13 +60,16 @@ class NewsFeed extends Component {
 
   render() {
     const teamnews = this.state.teams.map(team => {
-      return <div className="news-box">
-          <a target="_blank" href={team.strRSS}><img src={team.strTeamBadge} /></a>
+      return <div className="news-box" onClick={this.handleBadgeClick}>
+          <img src={team.strTeamBadge} />
       </div>
     })
 
     return (
       <div>
+      <Modal show={this.state.modaling} modalClosed={this.handleClose}>
+      <h1>hello</h1>
+    </Modal>
       <h3>Check out recent news about:</h3>
     {teamnews}
     </div>
