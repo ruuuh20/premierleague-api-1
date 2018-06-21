@@ -1,6 +1,22 @@
 .news-box {
-  width: 100%;
-  padding: 20px;
-  border-bottom: 1px solid black;
+
+  /* margin: 0 50%; */
+  padding: 22px;
+  border-bottom: 1px solid gray;
   text-align: center;
+  font-size: 30px;
+    display: inline-block;
+    box-sizing: border-box;
+
+}
+
+.news-box a {
+  text-decoration: none;
+    color: #122F67;
+
+}
+
+.news-box img {
+  width: 150px;
+  height: 150px;
 }

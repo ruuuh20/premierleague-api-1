@@ -3,14 +3,7 @@
 
   /* height: 700px; */
 }
-/*
-h1 {
-  font-size: 6em;
-}
 
-h3 {
-  font-size: 3em;
-} */
 
 .row {
   width: 100%;
@@ -26,7 +19,7 @@ h3 {
   clear: both;
 }
 
-.column img {
+.badge img {
   width: 250px;
   height: 250px;
 }
@@ -124,4 +117,10 @@ h3 {
   padding: 12px;
   font-size: 50px;
   height: 100vh;
+}
+
+.badge {
+  float: right;
+
+
 }

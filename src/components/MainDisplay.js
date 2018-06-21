@@ -25,7 +25,7 @@ class MainDisplay extends Component {
       stadium: null,
       stadiumLocation: null
     },
-    isThirdPage: this.props.isThirdPage,
+    isThirdPage: false,
     thirdPage: {
       player1: null,
       player2: null
@@ -93,7 +93,6 @@ componentWillReceiveProps = (nextProps) => {
         isThirdPage: true,
         isFirstPage: false
     })
-    // this.setState(this.baseState)
   }
 
   componentWillUnmount() {
@@ -172,7 +171,6 @@ componentWillReceiveProps = (nextProps) => {
       <div className="row main-row">
       <h3>Want to sound smart about the Premier League?</h3>
       <h3>Learn the basics. Pick a team.</h3>
-
       </div>
     )
 
@@ -227,7 +225,7 @@ componentWillReceiveProps = (nextProps) => {
             <div className="column">
               <h2>{this.state.firstPage.name}</h2>
             </div>
-            <div className="column">
+            <div className="badge">
                 <img src={this.state.firstPage.badge} alt=""/>
             </div>
           </div>
@@ -242,9 +240,6 @@ componentWillReceiveProps = (nextProps) => {
         </div>
       )
     }
-
-    // {this.state.isSecondPage === true ? <div>{second}</div> :<div>{teamPage}</div>}
-    // {(this.state.isThirdPage === true && this.state.isSecondPage === false) ? :<div></div>}
 
     if (this.state.isThirdPage === true) {
       return (

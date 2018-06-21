@@ -47,12 +47,13 @@ class NewsFeed extends Component {
   render() {
     const teamnews = this.state.teams.map(team => {
       return <div className="news-box">
-          Check out recent news about: <a target="_blank" href={team.strRSS}>{team.strTeam}</a>
+          <a target="_blank" href={team.strRSS}><img src={team.strTeamBadge} /></a>
       </div>
     })
 
     return (
       <div>
+      <h3>Check out recent news about:</h3>
     {teamnews}
     </div>
     );
