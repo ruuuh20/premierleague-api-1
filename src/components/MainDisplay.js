@@ -4,8 +4,14 @@ import axios from 'axios';
 import TeamWrapper from './TeamWrapper'
 import Button from './UI/Button'
 
+
+
+
 class MainDisplay extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+
+  this.state = {
     teamInfo: null,
     isFirstPage: this.props.isFirstPage,
     firstPage: {
@@ -27,7 +33,18 @@ class MainDisplay extends Component {
 
   };
 
+
+}
+
 baseState = this.state
+
+componentWillReceiveProps = (nextProps) => {
+  if (this.props.id != nextProps.id) {
+    this.setState({
+      isThirdPage: false
+    })
+  }
+}
 
   componentDidUpdate() {
 //if id is valid
@@ -77,6 +94,12 @@ baseState = this.state
         isFirstPage: false
     })
     // this.setState(this.baseState)
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      isThirdPage: false
+    })
   }
 
   render() {
@@ -148,8 +171,8 @@ baseState = this.state
     let teamPage = (
       <div className="row main-row">
       <h3>Want to sound smart about the Premier League?</h3>
-      <h3>You can learn the basics and join the conversation.</h3>
-      <h3>Pick a team!</h3>
+      <h3>Learn the basics. Pick a team.</h3>
+
       </div>
     )
 
