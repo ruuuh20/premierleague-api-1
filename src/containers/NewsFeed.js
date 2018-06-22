@@ -88,7 +88,7 @@ class NewsFeed extends Component {
 
   render() {
     const teamnews = this.state.teams.map(team => {
-      return <div className="news-box" onClick={this.handleBadgeClick}>
+      return <div className="news-box">
           <img src={team.strTeamBadge} />
       </div>
     })
