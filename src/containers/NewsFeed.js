@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './NewsFeed.css'
 import Modal from '../components/Modal';
+import NewsDisplay from './NewsDisplay'
 import axios from 'axios'
 
 class NewsFeed extends Component {
   constructor() {
     super();
     this.state = {
+      value: '',
+      data: [],
       teams: [],
       recentNewsPost: {
         name: '',
@@ -37,14 +40,12 @@ class NewsFeed extends Component {
 
     axios.get(url, {
       headers: {
-
         'Accept': 'application/json',
              'Content-Type': 'application/json',
-
  }
     })
         .then(function(response) {
-            console.log(response);
+            console.log(response.data);
         })
   }
 
@@ -80,6 +81,10 @@ class NewsFeed extends Component {
     {this.fetchNews()}
   }
 
+  handleChange = (event) => {
+      this.setState({ value: event.target.value });
+  }
+
   render() {
     const teamnews = this.state.teams.map(team => {
       return <div className="news-box" onClick={this.handleBadgeClick}>
@@ -94,8 +99,21 @@ class NewsFeed extends Component {
       <Modal show={this.state.modaling} modalClosed={this.handleClose}>
       {news}
     </Modal>
-      <h3>Check out recent news about:</h3>
+    <div className="news">
+      <h3>Check out recent headlines:</h3>
+      <select value={this.state.value} onChange={this.handleChange}>
+        >
+        {this.state.teams.map((outlet, i) => {
+          return (
+            <option key={i} value={outlet.id}>
+              {outlet.strTeam}
+            </option>
+          );
+        })}
+      </select>
+      </div>
     {teamnews}
+    <NewsDisplay default={this.state.value} />
     </div>
     );
   }
