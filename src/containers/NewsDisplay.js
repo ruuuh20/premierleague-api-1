@@ -12,14 +12,16 @@ class NewsDisplay extends Component {
   }
 
 
-  // componentWillMount() {
+  // componentDidMount() {
   //   this.getArticles(this.props.default);
+  //   console.log(this.props.default)
   // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
+
       this.setState({
-        url: `https://newsapi.org/v2/top-headlines?sources=bbc-sport&q=${
+        url: `https://newsapi.org/v2/everything?sources=bbc-sport&q=${
           nextProps.default
         }&sortBy=popularity&apiKey=a8ed41904cde47078c992fe104f12f44`
       });
@@ -50,9 +52,10 @@ class NewsDisplay extends Component {
 
   getArticles(url) {
 
-    axios.get(`https://newsapi.org/v2/top-headlines?sources=bbc-sport&q=${url}&apiKey=a8ed41904cde47078c992fe104f12f44`)
+    axios.get(`https://newsapi.org/v2/everything?sources=bbc-sport&q=${url}&sortBy=popularity&apiKey=a8ed41904cde47078c992fe104f12f44`)
       .then(res => {
-        const articles = res.data.articles;
+        console.log(res.data.articles)
+        const articles = res.data.articles.slice(0,10);
 
 
         this.setState({ articles: articles });

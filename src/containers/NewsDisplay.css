@@ -1,42 +1,15 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @ruuuh20 Sign out
-1
-2 3 alemesa/news-api-react
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-news-api-react/src/Display.css
-f2745d2  on Sep 9, 2017
-@alemesa alemesa New Readme Style
-
-96 lines (86 sloc)  1.41 KB
 .cardsContainer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
-	width: 95%;
+	width: 80%;
 	margin: 0 auto;
 }
 
 .cardsContainer {
 	flex: 1;
-}
-
-.card:nth-child(odd) {
-	border-right: 1px solid grey;
-}
-
-.card:nth-child(even) {
-	border-right: 1px solid white;
-	border-left: 1px solid grey;
-	margin-left: -1px;
 }
 
 .author {
@@ -55,9 +28,9 @@ f2745d2  on Sep 9, 2017
 .card {
 	display: flex;
 	flex-direction: row;
-	width: 49%;
+	width: 40%;
 	padding: 5px;
-	margin: 10px 0;
+	margin: 10px;
 	border-bottom: 1px solid grey;
 }
 
