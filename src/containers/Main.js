@@ -59,6 +59,7 @@ class Main extends Component {
     const teams = this.state.teams.map(team => {
       return <Team
         key={team.idTeam}
+        className={team.strTeam}
         name={team.strTeam}
         teamClicked={() => this.handleTeamClick(team.idTeam)}
         />

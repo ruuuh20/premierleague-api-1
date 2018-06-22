@@ -4,9 +4,6 @@ import axios from 'axios';
 import TeamWrapper from './TeamWrapper'
 import Button from './UI/Button'
 
-
-
-
 class MainDisplay extends Component {
   constructor(props) {
     super(props);
@@ -67,8 +64,8 @@ componentWillReceiveProps = (nextProps) => {
                 isSecondPage: false,
                 thirdPage: {
 
-                  player1: playerRes.data.player[0].strPlayer,
-                  player2: playerRes.data.player[1].strPlayer
+                  player1: '',
+                  player2: ''
                 }
 
               })
@@ -106,40 +103,64 @@ componentWillReceiveProps = (nextProps) => {
     let classes = [];
 
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Arsenal') {
-      classes.push('Arsenal')
+      classes.push('Arsenal');
+      this.state.thirdPage.player1 = 'Jack Wilshere'
+      this.state.thirdPage.player2 = 'Mesut Özil'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Bournemouth') {
-      classes.push('Bournemouth')
+      classes.push('Bournemouth');
+      this.state.thirdPage.player1 = 'Joshua King'
+      this.state.thirdPage.player2 = 'Nathan Aké'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Brighton') {
-      classes.push('Brighton')
+      classes.push('Brighton');
+      this.state.thirdPage.player1 = 'Matthew Ryan (GK)'
+      this.state.thirdPage.player2 = 'José Izquierdo (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Burnley') {
-      classes.push('Burnley')
+      classes.push('Burnley');
+      this.state.thirdPage.player1 = 'Nick Pope (GK)'
+      this.state.thirdPage.player2 = 'Jóhann Berg Guðmundsson (MF)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Chelsea') {
-      classes.push('Brighton')
+      classes.push('Chelsea');
+      this.state.thirdPage.player1 = 'Eden Hazard (F)'
+      this.state.thirdPage.player2 = 'Willian (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Crystal Palace') {
-      classes.push('Crystal-Palace')
+      classes.push('Crystal-Palace');
+      this.state.thirdPage.player1 = 'Christian Benteke (F)'
+      this.state.thirdPage.player2 = 'Wilfried Zaha (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Everton') {
-      classes.push('Everton')
+      classes.push('Everton');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Huddersfield Town') {
-      classes.push('Huddersfield-Town')
+      classes.push('Huddersfield-Town');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Leicester') {
-      classes.push('Leicester')
+      classes.push('Leicester');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Liverpool') {
-      classes.push('Liverpool')
+      classes.push('Liverpool');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man City') {
-      classes.push('Manchester-City')
+      classes.push('Manchester-City');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man United') {
-      classes.push('Man-United')
+      classes.push('Man-United');
+      this.state.thirdPage.player1 = ''
+      this.state.thirdPage.player2 = ''
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Newcastle') {
       classes.push('Newcastle')
