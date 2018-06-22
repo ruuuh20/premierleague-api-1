@@ -65,6 +65,7 @@ class NewsDisplay extends Component {
   render() {
     return (
       <div className="cardsContainer">
+    
         {this.state.articles.map((news, i) => {
           return (
             <div className="card" key={i}>
@@ -77,7 +78,7 @@ class NewsDisplay extends Component {
                 <p>{news.description}</p>
                 <div className="author">
                   <p>
-                    By <i>{news.author ? news.author : this.props.default}</i>
+                    By <i>{news.author ? news.author : "Unknown"}</i>
                   </p>
                   <p>{this.formatDate(news.publishedAt)}</p>
                 </div>

@@ -8,7 +8,7 @@ class NewsFeed extends Component {
   constructor() {
     super();
     this.state = {
-      value: '',
+      value: 'Arsenal',
       data: [],
       teams: [],
       recentNewsPost: {
@@ -101,7 +101,7 @@ class NewsFeed extends Component {
       {news}
     </Modal>
     <div className="news">
-      <h3>Check out recent headlines:</h3>
+      <h3>Check out recent headlines (powered by News API):</h3>
       <select value={this.state.value} onChange={this.handleChange}>
         {this.state.teams.map((outlet, i) => {
           return (

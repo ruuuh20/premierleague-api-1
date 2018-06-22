@@ -1,18 +1,15 @@
 .news-box {
-
   padding: 20px;
-  border-bottom: 1px solid gray;
+
   text-align: center;
   font-size: 30px;
     display: inline-block;
     box-sizing: border-box;
-
 }
 
 .news-box a {
   text-decoration: none;
     color: #122F67;
-
 }
 
 .news-box img {
@@ -22,19 +19,14 @@
 
 .news {
   text-align: center;
-
 }
 
 select {
   font-size: 1.3em;
   width: 20%;
   margin: 5px;
-  padding-left: 5px;
   outline: none;
-  border: 0;
-  border-bottom: 1px solid #757575;
-  /* margin-bottom: 2px; */
-  outline: none;
+  color: #38003c;
 }
 @media screen and (max-width: 1200px) {
 	select{

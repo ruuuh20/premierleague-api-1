@@ -12,11 +12,8 @@ const Navbar = () => {
       <NavLink className="navigation-link" to="/news">
         NEWS
       </NavLink>
-      <NavLink className="navigation-link" to="https://github.com/manavsehgal/reactspeedcoding">
-        <i className="fa fa-github"></i> Search
-      </NavLink>
-      <NavLink className="navigation-link" to="/blog">
-        <i className="fa fa-comments"></i> Blog
+      <NavLink className="navigation-link" to="#">
+        Search
       </NavLink>
     </ul>
     </div>

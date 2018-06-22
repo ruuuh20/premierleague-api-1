@@ -5,40 +5,19 @@ import axios from 'axios';
 import Team from '../components/Team'
 import TeamSection from '../components/TeamSection'
 
-function updateState(isThirdPage){
-    this.setState({isThirdPage})
-}
-
 
 class Main extends Component {
   state = {
     teams: [],
     teamId: null,
-    isFirstPage: false,
+    isFirstPage: null,
     isThirdPage: false
 
   }
 
-
-  // toggleChildMenu = () => {
-  //      this.setState(state => ({
-  //        isThirdPage: !state.isThirdPage
-  //      }));
-  //   }
-
-  //   updateChild(isThirdPage) {
-  //        updateState(isThirdPage)
-  //    }
-  // componentDidUpdate({
-  //   this.toggleChildMenu()
-  // })
-
-
-
   componentDidMount() {
     axios.get('https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League')
       .then(response => {
-        // console.log(response.data.teams)
         this.setState({
           teams: response.data.teams
         })
@@ -52,7 +31,7 @@ class Main extends Component {
       isFirstPage: true,
       isThirdPage: false
     })
-    this.updateChild;
+
   }
 
   render() {
