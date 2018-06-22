@@ -28,7 +28,8 @@
   background-color: #38003c;
   color: #00ff85;
   padding: 12px;
-  font-size: 48px;
+
+  font-size: 46px;
   height: 100vh;
 }
 .Arsenal {
@@ -88,11 +89,11 @@
   background-color: #D41E29;
   color: #FAE935;
 }
-.Stoke {
-  background-color: #D0122D;
-  color: #001F61;
+.Wolves {
+  background-color: #f4bb44;
+  color: #000000;
 }
-.Swansea {
+.Fulham {
   background-color: #121212;
   color: #ffffff;
 }
@@ -104,7 +105,7 @@
   background-color: #FEEB00;
   color: #E40F18;
 }
-.West-Brom {
+.Cardiff {
   background-color: #122F67;
   color: #ffffff;
 }
@@ -123,4 +124,7 @@
   float: right;
 
 
+}
+.jersey {
+  
 }

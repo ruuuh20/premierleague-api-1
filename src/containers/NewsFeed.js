@@ -83,7 +83,7 @@ class NewsFeed extends Component {
 
   handleChange = (event) => {
       this.setState({ value: event.target.value });
-  
+
   }
 
   render() {
@@ -103,7 +103,6 @@ class NewsFeed extends Component {
     <div className="news">
       <h3>Check out recent headlines:</h3>
       <select value={this.state.value} onChange={this.handleChange}>
-        >
         {this.state.teams.map((outlet, i) => {
           return (
             <option key={i} value={outlet.id}>

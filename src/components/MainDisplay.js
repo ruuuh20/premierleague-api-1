@@ -20,7 +20,8 @@ class MainDisplay extends Component {
     isSecondPage: false,
     secondPage: {
       stadium: null,
-      stadiumLocation: null
+      stadiumLocation: null,
+      jersey: null
     },
     isThirdPage: false,
     thirdPage: {
@@ -79,7 +80,8 @@ componentWillReceiveProps = (nextProps) => {
         isSecondPage: true,
         secondPage: {
           stadium: this.state.teamInfo.strStadium,
-          stadiumLocation: this.state.teamInfo.strStadiumLocation
+          stadiumLocation: this.state.teamInfo.strStadiumLocation,
+          jersey: this.state.teamInfo.strTeamJersey
         }
     })
   }
@@ -134,64 +136,82 @@ componentWillReceiveProps = (nextProps) => {
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Everton') {
       classes.push('Everton');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Wayne Rooney (F)'
+      this.state.thirdPage.player2 = 'Cenk Tosun (f)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Huddersfield Town') {
       classes.push('Huddersfield-Town');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Aaron Mooy (MF)'
+      this.state.thirdPage.player2 = 'Ramadan Sobhi (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Leicester') {
       classes.push('Leicester');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Jamie Vardy (F)'
+      this.state.thirdPage.player2 = 'Riyad Mahrez (MF)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Liverpool') {
       classes.push('Liverpool');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Mo Salah (F)'
+      this.state.thirdPage.player2 = 'Sadio Mané (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man City') {
       classes.push('Manchester-City');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Sergio Agüero (F)'
+      this.state.thirdPage.player2 = 'David Silva (MF)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Man United') {
       classes.push('Man-United');
-      this.state.thirdPage.player1 = ''
-      this.state.thirdPage.player2 = ''
+      this.state.thirdPage.player1 = 'Paul Pogba (MF)'
+      this.state.thirdPage.player2 = 'David de Gea (GK)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Newcastle') {
-      classes.push('Newcastle')
+      classes.push('Newcastle');
+      this.state.thirdPage.player1 = 'Kenedy (MF)'
+      this.state.thirdPage.player2 = 'Jonjo Shelvey (MF)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Southampton') {
-      classes.push('Southampton')
+      classes.push('Southampton');
+      this.state.thirdPage.player1 = 'Dušan Tadić (MF)'
+      this.state.thirdPage.player2 = 'Maya Yoshida (D)'
     }
-      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Stoke') {
-      classes.push('Stoke')
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Wolves') {
+      classes.push('Wolves');
+
+      this.state.thirdPage.player1 = 'Rúben Neves (MF)'
+      this.state.thirdPage.player2 = 'Raúl Jiménez (F))'
     }
-      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Swansea') {
-      classes.push('Swansea')
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Fulham') {
+      classes.push('Fulham');
+      this.state.thirdPage.player1 = 'Aleksandar Mitrović (F)'
+      this.state.thirdPage.player2 = 'Ryan Sessegnon (MF)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Tottenham') {
-      classes.push('Tottenham')
+      classes.push('Tottenham');
+      this.state.thirdPage.player1 = 'Harry Kane (F)'
+      this.state.thirdPage.player2 = 'Son Heung-min (F)'
     }
       if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Watford') {
-      classes.push('Watford')
+      classes.push('Watford');
+      this.state.thirdPage.player1 = 'Richarlison (F)'
+      this.state.thirdPage.player2 = 'Troy Deeney (F)'
     }
-      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'West Brom') {
-      classes.push('West-Brom')
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'Cardiff') {
+      classes.push('Cardiff')
+
+      this.state.thirdPage.player1 = 'Aron Gunnarsson (MF)'
+      this.state.thirdPage.player2 = 'Marko Grujić (MF)'
     }
-      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'West-Ham') {
-      classes.push('West-Ham')
+      if (this.state.teamInfo && this.state.teamInfo.strTeam === 'West Ham') {
+      classes.push('West-Ham');
+      this.state.thirdPage.player1 = 'Javier Hernández (F)'
+      this.state.thirdPage.player2 = 'Issa Diop (D)'
     }
 
 
     let teamPage = (
       <div className="row main-row">
-      <h3>Want to sound smart about the Premier League?</h3>
-      <h3>Learn the basics. Pick a team.</h3>
+      <h3>Want to sound smart about soccer?</h3>
+      <h3>Learn the basics of the Premier League. Pick a team!</h3>
       </div>
     )
 
@@ -224,9 +244,14 @@ componentWillReceiveProps = (nextProps) => {
         <div className={classes}>
         <div className="page-row">
         <div className="row">
-          <h1>Players to know:</h1>
-            <p>{this.state.thirdPage.player1}</p>
-            <p>{this.state.thirdPage.player2}</p>
+          <div className="column">
+            <h1>Players to know:</h1>
+              <p>{this.state.thirdPage.player1}</p>
+              <p>{this.state.thirdPage.player2}</p>
+          </div>
+          <div className="column">
+              <img className="jersey" src={this.state.secondPage.jersey} />
+          </div>
         </div>
         </div>
         </div>

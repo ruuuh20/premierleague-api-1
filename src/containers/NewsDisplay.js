@@ -54,10 +54,7 @@ class NewsDisplay extends Component {
 
     axios.get(`https://newsapi.org/v2/everything?sources=bbc-sport&q=${url}&sortBy=popularity&apiKey=a8ed41904cde47078c992fe104f12f44`)
       .then(res => {
-        console.log(res.data.articles)
         const articles = res.data.articles.slice(0,10);
-
-
         this.setState({ articles: articles });
       })
       .catch(error => {
