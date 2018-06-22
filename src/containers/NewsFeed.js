@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NewsFeed.css'
-import Modal from '../components/Modal'
+import Modal from '../components/Modal';
+import axios from 'axios'
 
 class NewsFeed extends Component {
   constructor() {
@@ -25,6 +26,26 @@ class NewsFeed extends Component {
     this.setState({
       modaling: false
     })
+  }
+
+  fetchNews() {
+    var url = 'https://newsapi.org/v2/everything?' +
+          'q=Apple&' +
+          'from=2018-06-21&' +
+          'sortBy=popularity&' +
+          'apiKey=a8ed41904cde47078c992fe104f12f44';
+
+    axios.get(url, {
+      headers: {
+
+        'Accept': 'application/json',
+             'Content-Type': 'application/json',
+
+ }
+    })
+        .then(function(response) {
+            console.log(response);
+        })
   }
 
   FetchDataFromRssFeed() {
@@ -56,6 +77,7 @@ class NewsFeed extends Component {
 
   componentDidMount() {
     {this.FetchDataFromRssFeed()}
+    {this.fetchNews()}
   }
 
   render() {
@@ -65,10 +87,12 @@ class NewsFeed extends Component {
       </div>
     })
 
+    const news = <h1>hi</h1>
+
     return (
       <div>
       <Modal show={this.state.modaling} modalClosed={this.handleClose}>
-      <h1>hello</h1>
+      {news}
     </Modal>
       <h3>Check out recent news about:</h3>
     {teamnews}
