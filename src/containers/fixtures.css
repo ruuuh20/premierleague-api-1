@@ -5,3 +5,8 @@
    width: 80%;
    margin: auto;
 }
+
+.fixtures-container {
+  display: flex;
+  flex-flow: row wrap;
+}

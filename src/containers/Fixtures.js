@@ -4,6 +4,13 @@ import './fixtures.css'
 import Fixture from '../components/Fixture';
 import FixtureInfo from '../components/FixtureInfo'
 
+
+// { headers: 
+//   { 'X-Auth-Token': token,
+//   'Access-Control-Allow-Methods': "GET",
+//   'Access-Control-Allow-Origin': "*"
+//  }}
+
 class Fixtures extends Component {
   constructor(props) {
     super(props);
@@ -18,18 +25,12 @@ class Fixtures extends Component {
     const old_url = 'https://api.football-data.org//v1/competitions/445/fixtures'
     const new_url = 'https://api.football-data.org/v2/competitions/2021'
 
-  axios.get(old_url, 
-  { headers: 
-    { 'X-Auth-Token': token,
-    'Access-Control-Allow-Methods': "GET",
-    'Access-Control-Allow-Origin': "*"
-   }})
+  axios.get('https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328')
     .then(response =>  {
-      console.log(response.data)
 
         // const fixtures = response.data.slice(0, 10);
       this.setState({
-        fixtures: response.data.fixtures.slice(0, 15)
+        fixtures: response.data.events
       })
     })
     .catch((error) => {
@@ -47,9 +48,9 @@ class Fixtures extends Component {
   render() {
     const fixtures = this.state.fixtures.map(fixture => {
       return <Fixture key={fixture.id}
-          status={fixture.status}
-          homeTeamName={fixture.homeTeamName}
-          awayTeamName={fixture.awayTeamName}
+          date={fixture.dateEvent}
+          homeTeamName={fixture.strHomeTeam}
+          awayTeamName={fixture.strAwayTeam}
           clicked={() => this.selectedHandler(fixture.id)}/>
 
     })
@@ -66,8 +67,13 @@ class Fixtures extends Component {
 
     return (
       <div className="fixtures">
+     
+        <h1>Next 15 games...</h1>
+    
+      <div className="fixtures-container">
 
       {fixtures}
+      </div>
         </div>
     )
   }
