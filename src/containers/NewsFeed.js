@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './NewsFeed.css'
-import Modal from '../components/Modal';
 import NewsDisplay from './NewsDisplay'
 import axios from 'axios'
 
@@ -14,22 +13,11 @@ class NewsFeed extends Component {
       recentNewsPost: {
         name: '',
         url: ''
-      },
-      modaling: false
+      }
     }
   }
 
-  handleBadgeClick = () => {
-    this.setState({
-      modaling: true
-    })
-  }
-
-  handleClose = () => {
-    this.setState({
-      modaling: false
-    })
-  }
+ 
 
  //  fetchNews() {
  //    var url = 'https://newsapi.org/v2/everything?' +
@@ -93,13 +81,10 @@ class NewsFeed extends Component {
       </div>
     })
 
-    const news = <h1>hi</h1>
 
     return (
       <div>
-      <Modal show={this.state.modaling} modalClosed={this.handleClose}>
-      {news}
-    </Modal>
+      
     <div className="news">
       <h3>Check out recent headlines:</h3>
       <select value={this.state.value} onChange={this.handleChange}>

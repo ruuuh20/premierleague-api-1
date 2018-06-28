@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './fixtures.css'
 import Fixture from '../components/Fixture';
-import FixtureInfo from '../components/FixtureInfo'
+import FixtureInfo from '../components/FixtureInfo';
+import Modal from '../components/Modal';
 
 
 // { headers: 
@@ -16,7 +17,8 @@ class Fixtures extends Component {
     super(props);
     this.state = {
       fixtures: [],
-      selectedId: null
+      selectedId: null,
+      showModal: false
     }
   }
 
@@ -40,9 +42,16 @@ class Fixtures extends Component {
 
   selectedHandler = (id) => {
     this.setState({
-      selectedId: id
+      selectedId: id,
+      showModal: true
     })
 
+  }
+
+  handleClose = () => {
+    this.setState({
+      showModal: false
+    })
   }
 
   render() {
@@ -65,8 +74,12 @@ class Fixtures extends Component {
 
   }
 
+  const news = <h1>hi</h1>
     return (
       <div className="fixtures">
+      <Modal show={this.state.showModal} modalClosed={this.handleClose}>
+      {news}
+      </Modal>
      
         <h1>Next 15 games...</h1>
     
