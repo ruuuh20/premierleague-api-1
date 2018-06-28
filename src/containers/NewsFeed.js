@@ -31,23 +31,23 @@ class NewsFeed extends Component {
     })
   }
 
-  fetchNews() {
-    var url = 'https://newsapi.org/v2/everything?' +
-          'q=Apple&' +
-          'from=2018-06-21&' +
-          'sortBy=popularity&' +
-          'apiKey=a8ed41904cde47078c992fe104f12f44';
-
-    axios.get(url, {
-      headers: {
-        'Accept': 'application/json',
-             'Content-Type': 'application/json',
- }
-    })
-        .then(function(response) {
-            console.log(response.data);
-        })
-  }
+ //  fetchNews() {
+ //    var url = 'https://newsapi.org/v2/everything?' +
+ //          'q=Apple&' +
+ //          'from=2018-06-21&' +
+ //          'sortBy=popularity&' +
+ //          'apiKey=a8ed41904cde47078c992fe104f12f44';
+ //
+ //    axios.get(url, {
+ //      headers: {
+ //        'Accept': 'application/json',
+ //             'Content-Type': 'application/json',
+ // }
+ //    })
+ //        .then(function(response) {
+ //            console.log(response.data);
+ //        })
+ //  }
 
   FetchDataFromRssFeed() {
     var result;
@@ -78,7 +78,7 @@ class NewsFeed extends Component {
 
   componentDidMount() {
     {this.FetchDataFromRssFeed()}
-    {this.fetchNews()}
+    // {this.fetchNews()}
   }
 
   handleChange = (event) => {
@@ -88,7 +88,7 @@ class NewsFeed extends Component {
 
   render() {
     const teamnews = this.state.teams.map(team => {
-      return <div className="news-box">
+      return <div className="news-box" onClick={this.handleBadgeClick}>
           <img src={team.strTeamBadge} />
       </div>
     })
@@ -101,8 +101,9 @@ class NewsFeed extends Component {
       {news}
     </Modal>
     <div className="news">
-      <h3>Check out recent headlines (powered by News API):</h3>
+      <h3>Check out recent headlines:</h3>
       <select value={this.state.value} onChange={this.handleChange}>
+        >
         {this.state.teams.map((outlet, i) => {
           return (
             <option key={i} value={outlet.id}>

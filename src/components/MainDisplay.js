@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './MainDisplay.css'
 import axios from 'axios';
-import TeamWrapper from './TeamWrapper'
-import Button from './UI/Button'
+import TeamWrapper from './TeamWrapper';
+import Button from './UI/Button';
+import logo from '../images/PL.jpg'
 
 class MainDisplay extends Component {
   constructor(props) {
@@ -212,6 +213,7 @@ componentWillReceiveProps = (nextProps) => {
       <div className="row main-row">
       <h3>Want to sound smart about soccer?</h3>
       <h3>Learn the basics of the Premier League. Pick a team!</h3>
+      <img src={logo} />
       </div>
     )
 
