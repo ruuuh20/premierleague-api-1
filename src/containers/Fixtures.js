@@ -15,13 +15,21 @@ class Fixtures extends Component {
 
   componentDidMount() {
     const token = '44caba9c4c56410185f1561dfed18948'
+    const old_url = 'https://api.football-data.org//v1/competitions/445/fixtures'
+    const new_url = 'https://api.football-data.org/v2/competitions/2021'
 
-  axios.get('https://api.football-data.org//v1/competitions/445/fixtures', { headers: { 'X-Auth-Token': token }})
+  axios.get(old_url, 
+  { headers: 
+    { 'X-Auth-Token': token,
+    'Access-Control-Allow-Methods': "GET",
+    'Access-Control-Allow-Origin': "*"
+   }})
     .then(response =>  {
+      console.log(response.data)
 
         // const fixtures = response.data.slice(0, 10);
       this.setState({
-        fixtures: response.data.fixtures.slice(0, 10)
+        fixtures: response.data.fixtures.slice(0, 15)
       })
     })
     .catch((error) => {

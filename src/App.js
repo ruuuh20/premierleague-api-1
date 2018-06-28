@@ -8,7 +8,7 @@ import Home from './containers/Home'
 import Fixtures from './containers/Fixtures'
 import Main from './containers/Main';
 import NewsFeed from './containers/NewsFeed';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
 
 class App extends Component {
 
@@ -30,6 +30,7 @@ class App extends Component {
       <Navbar />
       <Route path="/" exact component={Main} />
       <Route path="/news" exact component={NewsFeed} />
+      <Route path="/fixtures" exact component={Fixtures} />
       </div>
       </Router>
     );
