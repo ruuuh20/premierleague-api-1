@@ -10,3 +10,15 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+.column1 {
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+}
+
+.column2 {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}

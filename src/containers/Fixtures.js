@@ -17,6 +17,7 @@ class Fixtures extends Component {
     super(props);
     this.state = {
       fixtures: [],
+      fixture: null,
       selectedId: null,
       showModal: false
     }
@@ -29,6 +30,7 @@ class Fixtures extends Component {
 
   axios.get('https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328')
     .then(response =>  {
+      console.log(response)
 
         // const fixtures = response.data.slice(0, 10);
       this.setState({
@@ -40,10 +42,13 @@ class Fixtures extends Component {
       });
   }
 
-  selectedHandler = (id) => {
+  selectedHandler = (fixture) => {
+    console.log(fixture)
     this.setState({
-      selectedId: id,
-      showModal: true
+      showModal: true,
+      fixture: fixture,
+      selectedId: fixture.idEvent
+      
     })
 
   }
@@ -56,11 +61,12 @@ class Fixtures extends Component {
 
   render() {
     const fixtures = this.state.fixtures.map(fixture => {
-      return <Fixture key={fixture.id}
+      return <Fixture key={fixture.idEvent}
           date={fixture.dateEvent}
+          
           homeTeamName={fixture.strHomeTeam}
           awayTeamName={fixture.strAwayTeam}
-          clicked={() => this.selectedHandler(fixture.id)}/>
+          clicked={() => this.selectedHandler(fixture)}/>
 
     })
 
@@ -74,11 +80,29 @@ class Fixtures extends Component {
 
   }
 
-  const news = <h1>hi</h1>
+  let modalContent
+
+  if (this.state.fixture) {
+
+  
+  modalContent = <div className="">
+ 
+    <h2>{this.state.fixture.strEvent}</h2>
+    <h2>Who will win?</h2>
+    <div className="column1">
+    </div>
+    <div className="column2">
+    </div>
+  </div>
+  } else {
+    modalContent = <h2>select a team</h2>
+  }
+
+
     return (
       <div className="fixtures">
       <Modal show={this.state.showModal} modalClosed={this.handleClose}>
-      {news}
+      {modalContent}
       </Modal>
      
         <h1>Next 15 games...</h1>
