@@ -11,14 +11,18 @@
   flex-flow: row wrap;
 }
 
-.column1 {
+.column1, .column2 {
+  
   width: 100px;
   height: 100px;
-  background-color: blueviolet;
+  background-color: #88958D;
+  justify-content: baseline;
+  display: inline-block;
+  margin: 15px 25px;
+  
+  border-radius: 50%;
 }
 
-.column2 {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+.box-row {
+  text-align: center;
 }

@@ -4,6 +4,7 @@ import './fixtures.css'
 import Fixture from '../components/Fixture';
 import FixtureInfo from '../components/FixtureInfo';
 import Modal from '../components/Modal';
+import TeamButton from './TeamButton'
 
 
 // { headers: 
@@ -19,9 +20,12 @@ class Fixtures extends Component {
       fixtures: [],
       fixture: null,
       selectedId: null,
-      showModal: false
+      showModal: false,
+      bgColor: "",
+     
     }
   }
+
 
   componentDidMount() {
     const token = '44caba9c4c56410185f1561dfed18948'
@@ -48,9 +52,8 @@ class Fixtures extends Component {
       showModal: true,
       fixture: fixture,
       selectedId: fixture.idEvent
-      
+    
     })
-
   }
 
   handleClose = () => {
@@ -58,6 +61,18 @@ class Fixtures extends Component {
       showModal: false
     })
   }
+
+  boxClickFirst = (e) => {
+    this.setState({
+      bgColor: "#C1292E"
+    })
+  }
+  boxClickSecond = (e) => {
+    this.setState({
+      bgColor: "#C1292E"
+    })
+  }
+
 
   render() {
     const fixtures = this.state.fixtures.map(fixture => {
@@ -84,16 +99,28 @@ class Fixtures extends Component {
 
   if (this.state.fixture) {
 
+    modalContent = (
+      <div className="">
   
-  modalContent = <div className="">
- 
-    <h2>{this.state.fixture.strEvent}</h2>
-    <h2>Who will win?</h2>
-    <div className="column1">
-    </div>
-    <div className="column2">
-    </div>
-  </div>
+        <h2>{this.state.fixture.strEvent}</h2>
+        <h2>Who will win?</h2>
+     <div className="box-row">
+  
+      {/* <div className="column1"
+          style={{backgroundColor: this.state.bgColor}}
+          onClick={this.boxClickFirst}>{this.state.fixture.strHomeTeam}
+    
+      </div>
+        <div className="column2"
+            style={{backgroundColor: this.state.bgColor}}
+            onClick={this.boxClickSecond}>{this.state.fixture.strAwayTeam}
+        
+        </div> */}
+        <TeamButton color="blue" color2="red"/>
+            <TeamButton color="black" color2="white"/>
+        </div>
+      </div>
+    )
   } else {
     modalContent = <h2>select a team</h2>
   }
