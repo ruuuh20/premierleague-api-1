@@ -105,19 +105,8 @@ class Fixtures extends Component {
         <h2>{this.state.fixture.strEvent}</h2>
         <h2>Who will win?</h2>
      <div className="box-row">
-  
-      {/* <div className="column1"
-          style={{backgroundColor: this.state.bgColor}}
-          onClick={this.boxClickFirst}>{this.state.fixture.strHomeTeam}
-    
-      </div>
-        <div className="column2"
-            style={{backgroundColor: this.state.bgColor}}
-            onClick={this.boxClickSecond}>{this.state.fixture.strAwayTeam}
-        
-        </div> */}
-        <TeamButton color="blue" color2="red"/>
-            <TeamButton color="black" color2="white"/>
+        <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.strHomeTeam}</TeamButton>
+        <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.strAwayTeam}</TeamButton>
         </div>
       </div>
     )

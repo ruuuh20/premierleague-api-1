@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './TeamButton.css'
 
 class TeamButton extends React.Component {   
     constructor(){
@@ -8,14 +9,19 @@ class TeamButton extends React.Component {
       }
     }
     changeColor(){
-            this.setState({color_black: !this.state.color_black})
+        this.setState({color_black: !this.state.color_black})
     }
+
         render(){
         let bgColor = this.state.color_black ? this.props.color : this.props.color2
+
         return (
-        <div>
-            <button style={{backgroundColor: bgColor}} onClick={this.changeColor.bind(this)}>Button1</button>
-        </div>
+      
+            <button className="team-button"
+                    style={{backgroundColor: bgColor}} 
+                    onClick={this.changeColor.bind(this)}>{this.props.children}
+            </button>
+
       )
     }
 }
