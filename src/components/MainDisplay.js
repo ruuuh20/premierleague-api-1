@@ -16,6 +16,7 @@ class MainDisplay extends Component {
       name: null,
       manager: null,
       alternate: null,
+      short: null,
       badge: null
     },
     isSecondPage: false,
@@ -61,6 +62,7 @@ componentWillReceiveProps = (nextProps) => {
                   name: teamRes.data.teams[0].strTeam,
                   manager: teamRes.data.teams[0].strManager,
                   alternate: teamRes.data.teams[0].strAlternate,
+                  short: teamRes.data.teams[0].strTeamShort,
                   badge: teamRes.data.teams[0].strTeamBadge
                 },
                 isSecondPage: false,
@@ -264,6 +266,10 @@ componentWillReceiveProps = (nextProps) => {
     if (this.state.teamInfo && this.state.teamInfo.strAlternate) {
       alternate = "Also referred to as " + this.state.firstPage.alternate
     }
+    let short=""
+    if (this.state.teamInfo && this.state.teamInfo.strTeamShort) {
+      short = "Short: " + this.state.firstPage.short
+    }
     if (this.props.id) {
       teamPage = (
         <div className={classes}>
@@ -280,6 +286,7 @@ componentWillReceiveProps = (nextProps) => {
 
             <div className="next-row">
               <h1>{alternate}</h1>
+              <h1>{short}</h1>
               <h1>Manager: {this.state.firstPage.manager}</h1>
             </div>
 
