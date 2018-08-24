@@ -211,8 +211,8 @@ componentWillReceiveProps = (nextProps) => {
 
     let teamPage = (
       <div className="row main-row">
-      <h3>Want to sound smart about soccer?</h3>
-      <h3>Learn the basics of the Premier League. Pick a team!</h3>
+
+      <h3>Learn the basics of the Premier League!</h3>
       <img src={logo} />
       </div>
     )
@@ -234,7 +234,7 @@ componentWillReceiveProps = (nextProps) => {
               <h1>Location: {this.state.secondPage.stadiumLocation}</h1>
           </div>
         </div>
-        <Button clicked={this.clickToThird}>Tell me more!</Button>
+        <Button clicked={this.clickToThird}>Tell me more</Button>
         </div>
         </div>
       )
@@ -283,7 +283,7 @@ componentWillReceiveProps = (nextProps) => {
               <h1>Manager: {this.state.firstPage.manager}</h1>
             </div>
 
-            <Button clicked={this.clickToNext}>Tell me more!</Button>
+            <Button clicked={this.clickToNext}>Tell me more</Button>
         </div>
         </div>
       )
