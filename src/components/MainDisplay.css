@@ -1,5 +1,6 @@
 .main-display {
   width: 100%;
+  margin: 10px;
 
   /* height: 700px; */
 }
@@ -20,8 +21,8 @@
 }
 
 .badge img {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
 }
 
 .main-row {
@@ -30,7 +31,7 @@
   padding: 12px;
   text-align: center;
   font-size: 46px;
-  height: 100vh;
+  height: 80vh;
   opacity: .8;
 }
 .Arsenal {
@@ -116,9 +117,9 @@
 }
 
 .page-row {
-  padding: 12px;
-  font-size: 50px;
-  height: 100vh;
+  padding: 24px;
+  font-size: 36px;
+  height: 80vh;
 }
 
 .badge {

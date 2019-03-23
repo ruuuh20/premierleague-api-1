@@ -17,8 +17,6 @@ class NewsFeed extends Component {
     }
   }
 
- 
-
  //  fetchNews() {
  //    var url = 'https://newsapi.org/v2/everything?' +
  //          'q=Apple&' +
@@ -83,22 +81,20 @@ class NewsFeed extends Component {
 
 
     return (
-      <div>
-      
-    <div className="news">
-      <h3>Check out recent headlines:</h3>
-      <select value={this.state.value} onChange={this.handleChange}>
-        >
-        {this.state.teams.map((outlet, i) => {
-          return (
-            <option key={i} value={outlet.id}>
-              {outlet.strTeam}
-            </option>
-          );
-        })}
-      </select>
-      </div>
-    {teamnews}
+      <div className="logos-container">
+        <div className="news">
+          <h3>Check out recent headlines:</h3>
+          <select value={this.state.value} onChange={this.handleChange}>
+            {this.state.teams.map((outlet, i) => {
+              return (
+                <option key={i} value={outlet.id}>
+                  {outlet.strTeam}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+          {teamnews}
     <NewsDisplay default={this.state.value} />
     </div>
     );

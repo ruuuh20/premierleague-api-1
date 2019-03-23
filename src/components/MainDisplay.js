@@ -214,7 +214,7 @@ componentWillReceiveProps = (nextProps) => {
     let teamPage = (
       <div className="row main-row">
 
-      <h3>Learn the basics of the Premier League!</h3>
+      <h3></h3>
       <img src={logo} />
       </div>
     )
