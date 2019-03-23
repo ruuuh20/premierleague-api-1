@@ -1,6 +1,9 @@
 {
   "name": "epl-api-1",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.12.0"
+  }
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
