@@ -11,7 +11,7 @@ class Main extends Component {
     teams: [],
     teamId: null,
     isFirstPage: null,
-    isThirdPage: false
+   
 
   }
 
@@ -29,7 +29,7 @@ class Main extends Component {
     this.setState({
       teamId: id,
       isFirstPage: true,
-      isThirdPage: false
+    
     })
 
   }
@@ -52,7 +52,7 @@ class Main extends Component {
         {teams}
         </section>
         <section className="bottom">
-          <MainDisplay id={this.state.teamId} isFirstPage={this.state.isFirstPage} isThirdPage={this.state.isThirdPage}/>
+          <MainDisplay id={this.state.teamId} isFirstPage={this.state.isFirstPage} />
         </section>
 
       </div>
