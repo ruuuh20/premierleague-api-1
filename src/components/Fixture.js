@@ -24,14 +24,14 @@ const fixture = (props) => {
   const date = props.date
 
   return (
-    <article className="fixture" onClick={props.clicked}>
-    <h1>{props.homeTeamName}</h1>
-    <p>vs.</p>
-    <h1>{props.awayTeamName}</h1>
+    <div className="fixture" onClick={props.clicked}>
+    <span>{props.homeTeamName}</span>
+      <p>{formatDate(date)}</p>
+    <span>{props.awayTeamName}</span>
     <div className="info">
       <div>{formatDate(date)}</div>
     </div>
-  </article>
+  </div>
   )
 
   

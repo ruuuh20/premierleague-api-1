@@ -2,11 +2,16 @@
   display: flex;
    flex-flow: row wrap;
    justify-content: center;
-   width: 80%;
+   flex-direction: column;
+   
    margin: auto;
+   background: #fbf9f9;
 }
 
 .fixtures-container {
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
 }

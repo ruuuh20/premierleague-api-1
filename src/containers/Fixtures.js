@@ -30,7 +30,7 @@ class Fixtures extends Component {
   componentDidMount() {
     const token = '44caba9c4c56410185f1561dfed18948'
     const old_url = 'https://api.football-data.org//v1/competitions/445/fixtures'
-    const new_url = 'https://api.football-data.org/v2/competitions/2021/matches'
+    const new_url = 'https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED'
     let x = 'https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328'
 
   axios.get(new_url, {
@@ -43,7 +43,7 @@ class Fixtures extends Component {
  },
   })
     .then(response =>  {
-      console.log(response)
+      console.log(response.data.matches)
 
         // const fixtures = response.data.slice(0, 10);
       this.setState({
@@ -87,9 +87,8 @@ class Fixtures extends Component {
     const fixtures = this.state.fixtures.map(fixture => {
       return <Fixture key={fixture.idEvent}
           date={fixture.dateEvent}
-          
-          homeTeamName={fixture.strHomeTeam}
-          awayTeamName={fixture.strAwayTeam}
+          homeTeamName={fixture.homeTeam.name}
+          awayTeamName={fixture.awayTeam.name}
           clicked={() => this.selectedHandler(fixture)}/>
 
     })
@@ -129,8 +128,6 @@ class Fixtures extends Component {
       <Modal show={this.state.showModal} modalClosed={this.handleClose}>
       {modalContent}
       </Modal>
-     
-        <h1>Next 15 games...</h1>
     
       <div className="fixtures-container">
 
