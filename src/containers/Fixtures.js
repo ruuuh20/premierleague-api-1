@@ -4,16 +4,7 @@ import './fixtures.css'
 import Fixture from '../components/Fixture';
 import FixtureInfo from '../components/FixtureInfo';
 import Modal from '../components/Modal';
-import TeamButton from './TeamButton'
-
-
-// { headers: 
-//   { 'X-Auth-Token': token,
-//   'Access-Control-Allow-Methods': "GET",
-//   'Access-Control-Allow-Origin': "*"
-//  }}
-
-
+import TeamButton from './TeamButton';
 
 class Fixtures extends Component {
   constructor(props) {
@@ -27,8 +18,6 @@ class Fixtures extends Component {
      
     }
   }
-
-
 
   getCurrentDate = () => {
     var today = new Date();
@@ -55,27 +44,19 @@ class Fixtures extends Component {
   }
 
   
-
-
   componentDidMount() {
-    const token = '44caba9c4c56410185f1561dfed18948'
-    const old_url = 'https://api.football-data.org//v1/competitions/445/fixtures'
+    
     const new_url = `https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED&dateFrom=${this.getCurrentDate()}&dateTo=2019-10-20`
     let x = 'https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328'
 
   axios.get(new_url, {
      headers: 
   { 
-    'x-auth-token': token
-  // 'Access-Control-Allow-Methods': "GET",
-  // 'Access-Control-Allow-Origin': "*",
-  //     'Access-Control-Allow-Headers': "x-auth-token, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+    'x-auth-token': process.env.REACT_APP_API_KEY
  },
   })
     .then(response =>  {
       console.log(response.data.matches)
-
-        // const fixtures = response.data.slice(0, 10);
       this.setState({
         fixtures: response.data.matches
       })
@@ -86,7 +67,6 @@ class Fixtures extends Component {
   }
 
   selectedHandler = (fixture) => {
-    console.log(fixture)
     this.setState({
       showModal: true,
       fixture: fixture,
