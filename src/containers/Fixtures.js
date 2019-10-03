@@ -13,6 +13,8 @@ import TeamButton from './TeamButton'
 //   'Access-Control-Allow-Origin': "*"
 //  }}
 
+
+
 class Fixtures extends Component {
   constructor(props) {
     super(props);
@@ -27,10 +29,38 @@ class Fixtures extends Component {
   }
 
 
+
+  getCurrentDate = () => {
+    var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    console.log(today);
+    return today
+  }
+
+  nextweek = () => {
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+    return nextweek;
+  }
+
+  
+
+
   componentDidMount() {
     const token = '44caba9c4c56410185f1561dfed18948'
     const old_url = 'https://api.football-data.org//v1/competitions/445/fixtures'
-    const new_url = 'https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED'
+    const new_url = `https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED&dateFrom=${this.getCurrentDate()}&dateTo=2019-10-20`
     let x = 'https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328'
 
   axios.get(new_url, {
@@ -83,10 +113,17 @@ class Fixtures extends Component {
   }
 
 
+
+  
+
+
   render() {
+
+
+
     const fixtures = this.state.fixtures.map(fixture => {
       return <Fixture key={fixture.idEvent}
-          date={fixture.dateEvent}
+          date={fixture.utcDate}
           homeTeamName={fixture.homeTeam.name}
           awayTeamName={fixture.awayTeam.name}
           clicked={() => this.selectedHandler(fixture)}/>
