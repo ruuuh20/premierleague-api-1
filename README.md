@@ -1,3 +1,13 @@
+## Overview
+
+This project is a web app that provides information and regarding the teams in the English Premier League. Users can also find the latest news on each team as well as the fixtures for the next matchday. For those who are unfamiliar with the league, this gives the basic facts on each team that one might need to know. 
+
+Demo: https://epl-x.herokuapp.com/
+Data is provided through the api.football-data.org API
+News data is provided by the newsapi.org API
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

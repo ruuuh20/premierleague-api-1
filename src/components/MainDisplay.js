@@ -83,9 +83,7 @@ componentWillReceiveProps = (nextProps) => {
 
       squads = this.state.squad.map(s => {
         return (
-          
-            s.name
-          
+          <div className="squad-list">{s.name} - {s.position}</div>
         )
       })
     }
