@@ -1,19 +1,12 @@
 .main-display {
   width: 100%;
-  margin: 10px;
+  /* margin: 10px; */
 
   /* height: 700px; */
 }
 
-
 .row {
   width: 100%;
-}
-
-.column {
-  width: 50%;
-  float: left;
-
 }
 
 .next-row {
@@ -21,18 +14,22 @@
 }
 
 .badge img {
-  width: 220px;
-  height: 220px;
+  width: 100px;
+  height: 100px;
 }
 
 .main-row {
-  background-color: #38003c;
-  color: #00ff85;
-  padding: 12px;
-  text-align: center;
-  font-size: 30px;
-  height: 80vh;
-  opacity: .8;
+  /* text-align: center; */
+}
+
+.main-row img {
+  width: 60%;
+}
+
+.main-row h1 {
+  font-size: 160px;
+  color: #707070;
+  font-weight: lighter;
 }
 .Arsenal {
   background-color: #EC0C1C;
@@ -63,10 +60,7 @@
   background-color: #063A99;
   color: #ffffff;
 }
-.Huddersfield-Town{
-  background-color: #0E63AD;
-  color: #ffffff;
-}
+
 .Leicester{
   background-color: #1358A1;
   color: #FAB92C;;
@@ -95,10 +89,7 @@
   background-color: #f4bb44;
   color: #000000;
 }
-.Fulham {
-  background-color: #121212;
-  color: #ffffff;
-}
+
 .Tottenham {
   background-color: #11214B;
   color: #ffffff;
@@ -107,10 +98,7 @@
   background-color: #FEEB00;
   color: #E40F18;
 }
-.Cardiff {
-  background-color: #122F67;
-  color: #ffffff;
-}
+
 .West-Ham {
   background-color: #7A263A;
   color: #1BB1E7;
@@ -123,8 +111,18 @@
 }
 
 .badge {
-  float: right;
+
 
 
 }
 
+.subname {
+    color: #333;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    display: block;
+}

@@ -15,8 +15,6 @@ class Main extends Component {
     teams: [],
     teamId: null,
     isFirstPage: null,
-   
-
   }
 
   componentDidMount() {
@@ -55,12 +53,11 @@ class Main extends Component {
 
     )
     return (
-      <div>
-
-        <section className="team-top">
+      <div class="full-container">
+        <section className="team-top left column">
         {teams}
         </section>
-        <section className="bottom">
+        <section className="bottom right column">
           <MainDisplay id={this.state.teamId} isFirstPage={this.state.isFirstPage} />
         </section>
 

@@ -17,7 +17,8 @@ class MainDisplay extends Component {
       short: null,
       badge: null,
       stadium: null,
-    
+      color1: null,  // ["Red", "White"]
+      color2: null
  
 
   };
@@ -46,12 +47,14 @@ componentWillReceiveProps = (nextProps) => {
         })
         
             .then(teamRes => {
-              console.log(teamRes)
+         
               this.setState({
                   name: teamRes.data.name,
                   short: teamRes.data.shortName,
                   badge: teamRes.data.crestUrl,
-                  stadium: teamRes.data.venue
+                  stadium: teamRes.data.venue,
+                  color1: teamRes.data.clubColors.split(' / ')[0],
+                  color2: teamRes.data.clubColors.split(' / ')[1]
               })
             })
           
@@ -64,8 +67,7 @@ componentWillReceiveProps = (nextProps) => {
 
     let teamPage = (
       <div className="row main-row">
-
-      <h3></h3>
+        <h1>Premier <br></br>League</h1>
       <img src={logo} />
       </div>
     )
@@ -81,17 +83,19 @@ componentWillReceiveProps = (nextProps) => {
         <div className="page-row">
 
           <div className="row">
-            <div className="column">
+              <div className="badge">
+                <img src={this.state.badge} alt="Badge" />
+              </div>
+            <div className="column subname">
               <h3>{this.state.name}</h3>
             </div>
-            <div className="badge">
-                <img src={this.state.badge} alt="Badge"/>
-            </div>
+           
           </div>
 
             <div className="next-row">
   
               <h3>{this.state.short}</h3>
+              <h3>{this.state.color1}</h3>
            
             </div>
         </div>
