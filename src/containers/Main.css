@@ -13,7 +13,7 @@
 
 .left, .right {
   flex-shrink: 0;
-  padding: 0 20px;
+  padding: 0 60px;
 }
 
 .left {
@@ -21,11 +21,23 @@
 }
 
 .right {
-  flex: 3;
+  flex: 4;
 }
 
 .team-top {
   margin: auto;
   text-align: center;
   /* padding: 0 90px; */
+}
+
+.team-top img {
+  background: #fff;
+}
+
+.top-logo {
+  margin-top: 15px;
+  width: 100%;
+  opacity: .7;
+  height: 60px;
+  background: #fff;
 }

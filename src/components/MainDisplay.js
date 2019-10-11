@@ -3,7 +3,7 @@ import './MainDisplay.css'
 import axios from 'axios';
 import TeamWrapper from './TeamWrapper';
 import Button from './UI/Button';
-import logo from '../images/PL.jpg';
+import logo from '../images/Premier_League_Logo.svg';
 
 class MainDisplay extends Component {
   constructor(props) {
@@ -18,7 +18,8 @@ class MainDisplay extends Component {
       badge: null,
       stadium: null,
       color1: null,  // ["Red", "White"]
-      color2: null
+      color2: null,
+      squad: [] //[{1},{2}]
  
 
   };
@@ -54,7 +55,8 @@ componentWillReceiveProps = (nextProps) => {
                   badge: teamRes.data.crestUrl,
                   stadium: teamRes.data.venue,
                   color1: teamRes.data.clubColors.split(' / ')[0],
-                  color2: teamRes.data.clubColors.split(' / ')[1]
+                  color2: teamRes.data.clubColors.split(' / ')[1],
+                  squad: teamRes.data.squad
               })
             })
           
@@ -62,18 +64,30 @@ componentWillReceiveProps = (nextProps) => {
   }
 
   render() {
+    console.log(this.state)
 
     let classes = [];
+    let squads = ""
+
 
     let teamPage = (
       <div className="row main-row">
-        <h1>Premier <br></br>League</h1>
-      <img src={logo} />
+        <h1>Welcome to the Premier League.</h1>
+      
       </div>
     )
 
     if (this.props.id) {
       teamPage = <p>Loading</p>
+      // squads = this.state.squad[0]
+
+      squads = this.state.squad.map(s => {
+        return (
+          
+            s.name
+          
+        )
+      })
     }
     
 
@@ -95,7 +109,7 @@ componentWillReceiveProps = (nextProps) => {
             <div className="next-row">
   
               <h3>{this.state.short}</h3>
-              <h3>{this.state.color1}</h3>
+              <h3>Stadium: {this.state.stadium}</h3>
            
             </div>
         </div>
@@ -103,7 +117,10 @@ componentWillReceiveProps = (nextProps) => {
       )
     }
 return (
-  <div> {teamPage}</div >
+  <div> {teamPage}
+  {squads}
+ 
+  </div>
 )
     
   

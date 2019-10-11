@@ -3,7 +3,8 @@ import './Main.css'
 import MainDisplay from '../components/MainDisplay'
 import axios from 'axios';
 import Team from '../components/Team'
-import TeamSection from '../components/TeamSection'
+import TeamSection from '../components/TeamSection';
+import logo from '../images/Premier_League_Logo.svg';
 
 const old_url = 'https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League'
 
@@ -55,6 +56,7 @@ class Main extends Component {
     return (
       <div class="full-container">
         <section className="team-top left column">
+          <object className="top-logo" align="right" type="image/svg+xml" data={logo}></object>
         {teams}
         </section>
         <section className="bottom right column">
