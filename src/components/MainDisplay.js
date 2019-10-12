@@ -83,7 +83,9 @@ componentWillReceiveProps = (nextProps) => {
 
       squads = this.state.squad.map(s => {
         return (
-          <div className="squad-list">{s.name} - {s.position}</div>
+          <div className="squad-list">
+            <p>{s.name} - {s.position}</p>
+          </div>
         )
       })
     }
@@ -97,18 +99,16 @@ componentWillReceiveProps = (nextProps) => {
           <div className="row">
               <div className="badge">
                 <img src={this.state.badge} alt="Badge" />
+                <p>{this.state.name}</p>
               </div>
-            <div className="column subname">
-              <h3>{this.state.name}</h3>
-            </div>
+         
            
           </div>
 
             <div className="next-row">
-  
-              <h3>{this.state.short}</h3>
-              <h3>Stadium: {this.state.stadium}</h3>
-           
+
+              <p>Stadium: {this.state.stadium}</p>
+          
             </div>
         </div>
         </div>
