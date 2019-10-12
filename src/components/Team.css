@@ -8,12 +8,14 @@
   /* padding: 10px 0; */
 
   cursor: pointer;
+  transition: ease all .5s;
 }
 
 .team:hover,
 .team:active {
     background-color: #19A0C7;
     color: #eee;
+    opacity: .8;
 }
 
 h4 {
