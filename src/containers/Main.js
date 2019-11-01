@@ -42,7 +42,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state.teams)
     const teams = this.state.teams.map(team => {
       return <Team
         key={team.id}
@@ -54,7 +53,7 @@ class Main extends Component {
 
     )
     return (
-      <div class="full-container">
+      <div className="full-container">
         <section className="team-top left column">
           <object className="top-logo" align="right" type="image/svg+xml" data={logo}></object>
         {teams}

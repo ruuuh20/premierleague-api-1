@@ -6,26 +6,14 @@ import Button from './UI/Button';
 import logo from '../images/Premier_League_Logo.svg';
 
 class MainDisplay extends Component {
-  constructor(props) {
-    super(props);
 
-  this.state = {
+  state = {
       load: false,
       id: null,
-      name: null,
-
-      short: null,
-      badge: null,
-      stadium: null,
-      color1: null,  // ["Red", "White"]
-      color2: null,
+      team: {},
       squad: [] //[{1},{2}]
- 
-
   };
 
-
-}
 
 baseState = this.state
 
@@ -40,7 +28,6 @@ componentWillReceiveProps = (nextProps) => {
   componentDidUpdate() {
 //if id is valid
     if (this.props.id) {
-  
         axios.get(`https://api.football-data.org/v2/teams/${this.props.id}`, {
           headers: {
             'x-auth-token': process.env.REACT_APP_API_KEY
@@ -48,15 +35,9 @@ componentWillReceiveProps = (nextProps) => {
         })
         
             .then(teamRes => {
-         
               this.setState({
-                  name: teamRes.data.name,
-                  short: teamRes.data.shortName,
-                  badge: teamRes.data.crestUrl,
-                  stadium: teamRes.data.venue,
-                  color1: teamRes.data.clubColors.split(' / ')[0],
-                  color2: teamRes.data.clubColors.split(' / ')[1],
-                  squad: teamRes.data.squad
+                  team: teamRes.data,
+                  
               })
             })
           
@@ -64,8 +45,6 @@ componentWillReceiveProps = (nextProps) => {
   }
 
   render() {
-    console.log(this.state)
-
     let classes = [];
     let squads = ""
 
@@ -73,7 +52,6 @@ componentWillReceiveProps = (nextProps) => {
     let teamPage = (
       <div className="row main-row">
         <h1>Welcome to the Premier League.</h1>
-      
       </div>
     )
 
@@ -81,14 +59,17 @@ componentWillReceiveProps = (nextProps) => {
       teamPage = <p>Loading</p>
       // squads = this.state.squad[0]
 
-      squads = this.state.squad.map(s => {
-        return (
-          <div className="squad-list">
-            <p>{s.name} - {s.position}</p>
-          </div>
-        )
-      })
-    }
+    //   squads = {this.state.team.squad.map(s => {
+    //     return (
+    //       <div className="squad-list" key={s.id}>
+    //         <p>{s.name} - {s.position}</p>
+    //       </div>
+    //     )
+    //   })
+    // }
+  }
+
+  const team = this.state.team
     
 
     if (this.props.id) {
@@ -97,31 +78,31 @@ componentWillReceiveProps = (nextProps) => {
         <div className="page-row">
 
           <div className="row">
+          
               <div className="badge">
-                <img src={this.state.badge} alt="Badge" />
-                <p>{this.state.name}</p>
+                <img src={team["crestUrl"]} alt="Badge" />
+                <p>{team["name"]}</p>
+                <p>Stadium: {team["stadium"]}</p>
               </div>
+      
+            
          
            
           </div>
 
-            <div className="next-row">
-
-              <p>Stadium: {this.state.stadium}</p>
-          
-            </div>
         </div>
         </div>
       )
     }
+
+  
 return (
   <div> {teamPage}
-  {squads}
+
  
   </div>
 )
     
-  
 
 } }
 
