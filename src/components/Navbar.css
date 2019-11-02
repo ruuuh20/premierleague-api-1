@@ -9,9 +9,14 @@
   border-bottom: none;
   padding: 15px;
   text-decoration: none;
-  font-weight: bold;
+  letter-spacing: .2rem;
   color: rgb(20, 32, 83);
+  transition: all 0.3s ease;
 
+}
+
+.navigation-link:hover {
+  color: #19A78E;
 }
 
 .navbar {

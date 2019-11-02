@@ -16,9 +16,7 @@ const Navbar = () => {
       <NavLink className="navigation-link" to="/fixtures">
         FIXTURES
       </NavLink>
-      <NavLink className="navigation-link" to="#">
-        Search
-      </NavLink>
+     
     </ul>
     </div>
   );
