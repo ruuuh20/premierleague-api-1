@@ -64,6 +64,16 @@ componentWillReceiveProps = (nextProps) => {
                 <span> Stadium: {team["venue"]}</span><br/><br/>
                 <span><a href={team["website"]}>Official Website</a></span>
               </div>
+              <div className="competitions">
+                <h4>Current Active Competitions:</h4>
+                {!this.state.team.activeCompetitions ? "loading" :
+                  this.state.team.activeCompetitions.map(s => (
+                    <div className="comp-list" key={s.id}>
+                      <span>{s.name}</span> | <span className="pos">{s.area.name}</span><br/><br/>
+                    </div>
+                  ))
+                }
+              </div>
               <h4>Squad:</h4>
                 <div className="squad-wrapper">
                   { !this.state.team.squad ? "loading" : 
