@@ -11,11 +11,7 @@ class MainDisplay extends Component {
       load: false,
       id: null,
       team: {},
-      squad: [] //[{1},{2}]
   };
-
-
-baseState = this.state
 
 componentWillReceiveProps = (nextProps) => {
   if (this.state.id != null && this.state.id != nextProps.id) {
@@ -33,21 +29,16 @@ componentWillReceiveProps = (nextProps) => {
             'x-auth-token': process.env.REACT_APP_API_KEY
           }
         })
-        
             .then(teamRes => {
               this.setState({
                   team: teamRes.data,
-                  
               })
             })
-          
     }
   }
 
   render() {
     let classes = [];
-    let squads = ""
-
 
     let teamPage = (
       <div className="row main-row">
@@ -55,39 +46,35 @@ componentWillReceiveProps = (nextProps) => {
       </div>
     )
 
-    if (this.props.id) {
-      teamPage = <p>Loading</p>
-      // squads = this.state.squad[0]
-
-    //   squads = {this.state.team.squad.map(s => {
-    //     return (
-    //       <div className="squad-list" key={s.id}>
-    //         <p>{s.name} - {s.position}</p>
-    //       </div>
-    //     )
-    //   })
-    // }
-  }
-
   const team = this.state.team
-    
-
+ 
     if (this.props.id) {
       teamPage = (
         <div className={classes}>
         <div className="page-row">
 
           <div className="row">
-          
               <div className="badge">
                 <img src={team["crestUrl"]} alt="Badge" />
-                <p>{team["name"]}</p>
-                <p>Stadium: {team["stadium"]}</p>
+                <p>{team["name"]}</p><br/>
+                <hr/>
+              </div><br/>
+              <div className="more-info">
+                <span>Short Name: {team["shortName"]}</span><br/><br/>
+                <span> Stadium: {team["venue"]}</span><br/><br/>
+                <span><a href={team["website"]}>Official Website</a></span>
               </div>
-      
-            
-         
-           
+              <h4>Squad:</h4>
+                <div className="squad-wrapper">
+                  { !this.state.team.squad ? "loading" : 
+                      this.state.team.squad.map(s => (
+                        <div className="squad-list" key={s.id}>
+                          <span>{s.name}</span> | <span className="pos">{s.position}</span>
+                        </div>
+                      ))
+                  }
+              </div>
+        
           </div>
 
         </div>
@@ -97,13 +84,11 @@ componentWillReceiveProps = (nextProps) => {
 
   
 return (
-  <div> {teamPage}
-
- 
+  <div> 
+  {teamPage}
   </div>
 )
     
-
 } }
 
 export default MainDisplay;

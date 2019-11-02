@@ -27,7 +27,7 @@
 }
 
 .main-row h1 {
-  font-size: 160px;
+  font-size: 150px;
   color: #707070;
   font-weight: lighter;
 }
@@ -106,7 +106,7 @@
 
 .page-row {
   padding: 24px;
-  font-size: 30px;
+  font-size: 18px;
 }
 
 .badge {
@@ -116,13 +116,29 @@
 .badge p {
   text-transform: uppercase;
   margin-bottom: -20px;
-  font-size: 44px;
+  font-size: 46px;
   color: #fff;
+  letter-spacing: 1rem;
 
+}
 
+.more-info  {
+  color: #fff;
 }
 
 
 .squad-list {
   color: #707070;
+}
+
+span.pos {
+  color: #999;
+  font-size: 14px;
+}
+
+.squad-wrapper {
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
 }
