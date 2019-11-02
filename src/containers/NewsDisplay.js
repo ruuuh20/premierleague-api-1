@@ -3,14 +3,9 @@ import './NewsDisplay.css'
 import axios from 'axios';
 
 class NewsDisplay extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+    state = {
       articles: []
     };
-  }
-
 
   // componentDidMount() {
   //   this.getArticles(this.props.default);
@@ -54,7 +49,7 @@ class NewsDisplay extends Component {
 
     axios.get(`https://newsapi.org/v2/everything?sources=bbc-sport&q=${url}&sortBy=popularity&apiKey=a8ed41904cde47078c992fe104f12f44`)
       .then(res => {
-        const articles = res.data.articles.slice(0,10);
+        const articles = res.data.articles.slice(0,6);
         this.setState({ articles: articles });
       })
       .catch(error => {
@@ -70,11 +65,11 @@ class NewsDisplay extends Component {
           return (
             <div className="card" key={i}>
               <div className="content">
-                <h3>
+                <h4>
                   <a href={news.url} target="_blank">
                     {news.title}
                   </a>
-                </h3>
+                </h4>
                 <p>{news.description}</p>
                 <div className="author">
                   <p>

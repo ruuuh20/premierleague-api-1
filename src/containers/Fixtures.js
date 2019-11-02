@@ -7,9 +7,7 @@ import Modal from '../components/Modal';
 import TeamButton from './TeamButton';
 
 class Fixtures extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       fixtures: [],
       fixture: null,
       selectedId: null,
@@ -17,8 +15,7 @@ class Fixtures extends Component {
       bgColor: "",
      
     }
-  }
-
+  
   getCurrentDate = () => {
     var today = new Date();
     var dd = today.getDate();
@@ -119,12 +116,12 @@ class Fixtures extends Component {
   if (this.state.fixture) {
 
     modalContent = (
-      <div className="">
+      <div className="center-align">
         <h2>{this.state.fixture.strEvent}</h2>
-        <h2>Who will win?</h2>
+        <h3>Who will win?</h3>
       <div className="box-row">
           <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.homeTeam.name}</TeamButton>
-          <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.AwayTeam.name}</TeamButton>
+          <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.awayTeam.name}</TeamButton>
           </div>
         </div>
     )
@@ -136,12 +133,11 @@ class Fixtures extends Component {
     return (
       <div className="fixtures">
       <Modal show={this.state.showModal} modalClosed={this.handleClose}>
-      {modalContent}
+        {modalContent}
       </Modal>
     
       <div className="fixtures-container">
-
-      {fixtures}
+        {fixtures}
       </div>
         </div>
     )
