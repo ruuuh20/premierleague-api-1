@@ -7,7 +7,7 @@
 
 .navigation-link {
   border-bottom: none;
-  padding: 10px;
+  padding: 15px;
   text-decoration: none;
   font-weight: bold;
   color: rgb(20, 32, 83);
@@ -17,5 +17,5 @@
 .navbar {
   text-align: center;
   margin: 0;
-  padding: 10px;
+  padding: 15px;
 }

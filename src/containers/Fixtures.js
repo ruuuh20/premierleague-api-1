@@ -46,7 +46,7 @@ class Fixtures extends Component {
   
   componentDidMount() {
     
-    const new_url = `https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED&dateFrom=${this.getCurrentDate()}&dateTo=2019-10-20`
+    const new_url = `https://api.football-data.org/v2/competitions/2021/matches?status=SCHEDULED&dateFrom=${this.getCurrentDate()}&dateTo=2019-11-30`
     let x = 'https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4328'
 
   axios.get(new_url, {
@@ -56,7 +56,7 @@ class Fixtures extends Component {
  },
   })
     .then(response =>  {
-      console.log(response.data.matches)
+   
       this.setState({
         fixtures: response.data.matches
       })
@@ -93,13 +93,7 @@ class Fixtures extends Component {
   }
 
 
-
-  
-
-
   render() {
-
-
 
     const fixtures = this.state.fixtures.map(fixture => {
       return <Fixture key={fixture.idEvent}
@@ -126,14 +120,13 @@ class Fixtures extends Component {
 
     modalContent = (
       <div className="">
-  
         <h2>{this.state.fixture.strEvent}</h2>
         <h2>Who will win?</h2>
-     <div className="box-row">
-        <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.strHomeTeam}</TeamButton>
-        <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.strAwayTeam}</TeamButton>
+      <div className="box-row">
+          <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.homeTeam.name}</TeamButton>
+          <TeamButton color="#EDEEEE" color2="#C1292E">{this.state.fixture.AwayTeam.name}</TeamButton>
+          </div>
         </div>
-      </div>
     )
   } else {
     modalContent = <h2>select a team</h2>
