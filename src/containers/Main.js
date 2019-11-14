@@ -1,69 +1,74 @@
-import React, { Component } from 'react';
-import './Main.css'
-import MainDisplay from '../components/MainDisplay'
-import axios from 'axios';
-import Team from '../components/Team'
-import TeamSection from '../components/TeamSection';
-import logo from '../images/Premier_League_Logo.svg';
+import React, { Component } from "react";
+import "./Main.css";
+import MainDisplay from "../components/MainDisplay";
+import axios from "axios";
+import Team from "../components/Team";
+import logo from "../images/Premier_League_Logo.svg";
 
-const old_url = 'https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League'
-
-const new_url = 'https://api.football-data.org/v2/competitions/2021/teams'
+const new_url = "https://api-football-v1.p.rapidapi.com/v2/teams/league/524";
 
 // const token = '44caba9c4c56410185f1561dfed18948'
 class Main extends Component {
   state = {
     teams: [],
     teamId: null,
-    isFirstPage: null,
-  }
+    isFirstPage: null
+  };
 
   componentDidMount() {
-    axios.get(new_url, {
-      headers: {
-        'x-auth-token': process.env.REACT_APP_API_KEY
-      }
-    })
+    console.log(process.env);
+    axios
+      .get(new_url, {
+        headers: {
+          // 'x-auth-token': process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
+        }
+      })
       .then(response => {
         this.setState({
-          teams: response.data.teams
-        })
-      })
+          teams: response.data.api.teams
+        });
+        console.log(response.data.api.teams);
+      });
   }
 
-  handleTeamClick = (id) => {
-
+  handleTeamClick = id => {
     this.setState({
       teamId: id,
-      isFirstPage: true,
-    
-    })
-
-  }
+      isFirstPage: true
+    });
+  };
 
   render() {
     const teams = this.state.teams.map(team => {
-      return <Team
-        key={team.id}
-        className={team.name}
-        name={team.shortName}
-        teamClicked={() => this.handleTeamClick(team.id)}
+      return (
+        <Team
+          key={team.team_id}
+          className={team.name}
+          name={team.name}
+          teamClicked={() => this.handleTeamClick(team.id)}
         />
-      }
-
-    )
+      );
+    });
     return (
       <div className="full-container">
         <section className="team-top left column">
-          <object className="top-logo" align="right" type="image/svg+xml" data={logo}></object>
-        {teams}
+          <object
+            className="top-logo"
+            align="right"
+            type="image/svg+xml"
+            data={logo}
+          ></object>
+          {teams}
         </section>
         <section className="bottom right column">
-          <MainDisplay id={this.state.teamId} isFirstPage={this.state.isFirstPage} />
+          <MainDisplay
+            id={this.state.teamId}
+            isFirstPage={this.state.isFirstPage}
+          />
         </section>
-
       </div>
-    )
+    );
   }
 }
 
