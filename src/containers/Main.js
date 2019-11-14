@@ -46,7 +46,7 @@ class Main extends Component {
           key={team.team_id}
           className={team.name}
           name={team.name}
-          teamClicked={() => this.handleTeamClick(team.id)}
+          teamClicked={() => this.handleTeamClick(team.team_id)}
         />
       );
     });
