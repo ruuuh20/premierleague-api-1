@@ -20,21 +20,35 @@ class MainDisplay extends Component {
     }
   };
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   //if id is valid
+  //   if (prevProps.id !== this.props.id) {
+  //     axios
+  //       .get(
+  //         `https://api-football-v1.p.rapidapi.com/v2/teams/team/${this.props.id}`,
+  //         {
+  //           headers: {
+  //             "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
+  //           }
+  //         }
+  //       )
+  //       .then(teamRes => {
+  //         this.setState({
+  //           team: teamRes.data.api.teams[0]
+  //         });
+  //       });
+  //   }
+  // }
   componentDidUpdate(prevProps, prevState) {
     //if id is valid
     if (prevProps.id !== this.props.id) {
       axios
         .get(
-          `https://api-football-v1.p.rapidapi.com/v2/teams/team/${this.props.id}`,
-          {
-            headers: {
-              "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
-            }
-          }
+          `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
         )
         .then(teamRes => {
           this.setState({
-            team: teamRes.data.api.teams[0]
+            team: teamRes.data.teams[0]
           });
         });
     }
@@ -57,14 +71,14 @@ class MainDisplay extends Component {
           <div className="page-row">
             <div className="row">
               <div className="badge">
-                <img src={team["logo"]} alt="Badge" />
-                <p>{team["name"]}</p>
+                <img src={team["strTeamLogo"]} alt="Badge" />
+                <p>{team["strTeam"]}</p>
                 <br />
                 <hr />
               </div>
               <br />
               <div className="more-info">
-                <span> Stadium: {team["venue_name"]}</span>
+                <span> Stadium: {team["strStadium"]}</span>
                 <br />
                 <br />
                 <span> City: {team["venue_city"]}</span>

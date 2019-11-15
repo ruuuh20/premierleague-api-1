@@ -7,7 +7,9 @@ import logo from "../images/Premier_League_Logo.svg";
 
 const new_url = "https://api-football-v1.p.rapidapi.com/v2/teams/league/524";
 
-// const token = '44caba9c4c56410185f1561dfed18948'
+const url =
+  "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League";
+
 class Main extends Component {
   state = {
     teams: [],
@@ -15,21 +17,30 @@ class Main extends Component {
     isFirstPage: null
   };
 
+  // componentDidMount() {
+  //   console.log(process.env);
+  //   axios
+  //     .get(url, {
+  //       headers: {
+  //         // 'x-auth-token': process.env.REACT_APP_API_KEY,
+  //         "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
+  //       }
+  //     })
+  //     .then(response => {
+  //       this.setState({
+  //         teams: response.data.api.teams
+  //       });
+  //       console.log(response.data.api.teams);
+  //     });
+  // }
   componentDidMount() {
     console.log(process.env);
-    axios
-      .get(new_url, {
-        headers: {
-          // 'x-auth-token': process.env.REACT_APP_API_KEY,
-          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
-        }
-      })
-      .then(response => {
-        this.setState({
-          teams: response.data.api.teams
-        });
-        console.log(response.data.api.teams);
+    axios.get(url).then(response => {
+      this.setState({
+        teams: response.data.teams
       });
+      console.log(response.data.teams);
+    });
   }
 
   handleTeamClick = id => {
@@ -43,10 +54,10 @@ class Main extends Component {
     const teams = this.state.teams.map(team => {
       return (
         <Team
-          key={team.team_id}
-          className={team.name}
-          name={team.name}
-          teamClicked={() => this.handleTeamClick(team.team_id)}
+          key={team.idTeam}
+          className={team.strTeam}
+          name={team.strTeam}
+          teamClicked={() => this.handleTeamClick(team.idTeam)}
         />
       );
     });

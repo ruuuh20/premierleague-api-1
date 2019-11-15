@@ -51,8 +51,6 @@ class Fixtures extends Component {
     axios
       .get(url)
       .then(response => {
-        console.log(response);
-
         this.setState({
           fixtures: response.data.events
         });
