@@ -5,6 +5,11 @@ import TeamWrapper from "./TeamWrapper";
 import Button from "./UI/Button";
 import logo from "../images/Premier_League_Logo.svg";
 
+// let x = `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`;
+// let y = `https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${this.props.id}`;
+
+// const requestOne = axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`);
+// const requestTwo = axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${this.props.id}`);
 class MainDisplay extends Component {
   state = {
     load: false,
@@ -39,17 +44,46 @@ class MainDisplay extends Component {
   //       });
   //   }
   // }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   //if id is valid
+  //   if (prevProps.id !== this.props.id) {
+  //     axios
+  //       .get(
+  //         `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
+  //       )
+  //       .then(teamRes => {
+  //         this.setState({
+  //           team: teamRes.data.teams[0]
+  //         });
+  //       });
+  //   }
+  // }
+
   componentDidUpdate(prevProps, prevState) {
     //if id is valid
     if (prevProps.id !== this.props.id) {
       axios
-        .get(
-          `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
+        .all([
+          axios.get(
+            `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
+          ),
+          axios.get(
+            `https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${this.props.id}`
+          )
+        ])
+        .then(
+          axios.spread((...responses) => {
+            const responseOne = responses[0];
+            const responseTwo = responses[1];
+            this.setState({
+              team: responseOne.data.teams[0],
+              squad: responseTwo.data.player
+            });
+          })
         )
-        .then(teamRes => {
-          this.setState({
-            team: teamRes.data.teams[0]
-          });
+        .catch(errors => {
+          console.log(errors);
         });
     }
   }
@@ -71,7 +105,7 @@ class MainDisplay extends Component {
           <div className="page-row">
             <div className="row">
               <div className="badge">
-                <img src={team["strTeamLogo"]} alt="Badge" />
+                <img src={team["strTeamBadge"]} alt="Badge" />
                 <p>{team["strTeam"]}</p>
                 <br />
                 <hr />
@@ -81,34 +115,25 @@ class MainDisplay extends Component {
                 <span> Stadium: {team["strStadium"]}</span>
                 <br />
                 <br />
-                <span> City: {team["venue_city"]}</span>
+                <span> Location: {team["strStadiumLocation"]}</span>
                 <br />
                 <br />
                 <span>
-                  <a href={team["website"]}>Official Website</a>
+                  <a href={team["strWebsite"]}>Official Website</a>
                 </span>
               </div>
-              <div className="competitions">
-                <h4>Current Active Competitions:</h4>
-                {!this.state.team.activeCompetitions
-                  ? "loading"
-                  : this.state.team.activeCompetitions.map(s => (
-                      <div className="comp-list" key={s.id}>
-                        <span>{s.name}</span> |{" "}
-                        <span className="pos">{s.area.name}</span>
-                        <br />
-                        <br />
-                      </div>
-                    ))}
-              </div>
+
               <h4>Squad:</h4>
               <div className="squad-wrapper">
-                {!this.state.team.squad
+                {!this.state.squad
                   ? "loading"
-                  : this.state.team.squad.map(s => (
+                  : this.state.squad.map(s => (
                       <div className="squad-list" key={s.id}>
-                        <span>{s.name}</span> |{" "}
-                        <span className="pos">{s.position}</span>
+                        <span>
+                          {s.strCutout ? <img src={s.strCutout}></img> : ""}
+                        </span>
+                        <span>{s.strPlayer}</span> |{" "}
+                        <span className="pos">{s.strPosition}</span>
                       </div>
                     ))}
               </div>
