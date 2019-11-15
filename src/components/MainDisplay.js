@@ -57,17 +57,17 @@ class MainDisplay extends Component {
           <div className="page-row">
             <div className="row">
               <div className="badge">
-                <img src={team["crestUrl"]} alt="Badge" />
+                <img src={team["logo"]} alt="Badge" />
                 <p>{team["name"]}</p>
                 <br />
                 <hr />
               </div>
               <br />
               <div className="more-info">
-                <span>Short Name: {team["shortName"]}</span>
+                <span> Stadium: {team["venue_name"]}</span>
                 <br />
                 <br />
-                <span> Stadium: {team["venue"]}</span>
+                <span> City: {team["venue_city"]}</span>
                 <br />
                 <br />
                 <span>
