@@ -10,12 +10,24 @@ import logo from "../images/Premier_League_Logo.svg";
 
 // const requestOne = axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`);
 // const requestTwo = axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${this.props.id}`);
+
+const TEAM_IDS_SECONDARY = [
+  {
+    name: "Tottenham",
+    idOne: "133616",
+    idTwo: "47"
+  }
+];
+
 class MainDisplay extends Component {
   state = {
     load: false,
     id: null,
+    idSecondary: null,
     team: {}
   };
+
+  // hardcoding the id for api-football because this uses two different apis
 
   componentWillReceiveProps = nextProps => {
     if (this.state.id != null && this.state.id != nextProps.id) {
@@ -23,6 +35,54 @@ class MainDisplay extends Component {
         id: nextProps.id
       });
     }
+
+    // if (
+    //   TEAM_IDS_SECONDARY.filter(function(e) {
+    //     return e.idOne === "133610";
+    //   }).length > 0
+    // ) {
+    //   this.setState({
+    //     idSecondary: e.idTwo
+    //   })
+    // }
+    switch (nextProps) {
+      case "133616": //tot
+        this.setState({
+          idSecondary: "47"
+        });
+        break;
+      case "133610": //chelsea
+        this.setState({
+          idSecondary: "49"
+        });
+        break;
+      case "133612": //man u
+        this.setState({
+          idSecondary: "33"
+        });
+        break;
+      case "133599": //woles
+        this.setState({
+          idSecondary: "39"
+        });
+        break;
+      case "133626": //lei
+        this.setState({
+          idSecondary: "46"
+        });
+        break;
+
+      default:
+        this.setState({
+          idSecondary: null
+        });
+    }
+    // if (nextProps.id === "133610") {
+    //   //chelsea
+    //   this.setState({
+    //     idSecondary: "49"
+    //   });
+    // }
   };
 
   // componentDidUpdate(prevProps, prevState) {
@@ -45,21 +105,6 @@ class MainDisplay extends Component {
   //   }
   // }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   //if id is valid
-  //   if (prevProps.id !== this.props.id) {
-  //     axios
-  //       .get(
-  //         `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
-  //       )
-  //       .then(teamRes => {
-  //         this.setState({
-  //           team: teamRes.data.teams[0]
-  //         });
-  //       });
-  //   }
-  // }
-
   componentDidUpdate(prevProps, prevState) {
     //if id is valid
     if (prevProps.id !== this.props.id) {
@@ -69,7 +114,12 @@ class MainDisplay extends Component {
             `https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${this.props.id}`
           ),
           axios.get(
-            `https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${this.props.id}`
+            `https://api-football-v1.p.rapidapi.com/v2/players/squad/${this.state.idSecondary}/2018-2019`,
+            {
+              headers: {
+                "X-RapidAPI-Key": process.env.REACT_APP_API_KEY
+              }
+            }
           )
         ])
         .then(
@@ -78,8 +128,9 @@ class MainDisplay extends Component {
             const responseTwo = responses[1];
             this.setState({
               team: responseOne.data.teams[0],
-              squad: responseTwo.data.player
+              squad: responseTwo.data.api.players
             });
+            console.log(this.state.squad);
           })
         )
         .catch(errors => {
@@ -129,14 +180,12 @@ class MainDisplay extends Component {
                   ? "loading"
                   : this.state.squad.map(s => (
                       <div className="squad-list" key={s.id}>
-                        <span>
-                          {s.strCutout ? <img src={s.strCutout}></img> : ""}
-                        </span>
-                        <span>{s.strPlayer}</span> |{" "}
-                        <span className="pos">{s.strPosition}</span>
+                        <span>{s.firstname}</span> |{" "}
+                        <span className="pos">{s.position}</span>
                       </div>
                     ))}
               </div>
+              {/* <p>{this.state.squad ? this.state.squad["name"] : "no"}</p> */}
             </div>
           </div>
         </div>
