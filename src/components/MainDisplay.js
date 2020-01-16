@@ -239,7 +239,9 @@ class MainDisplay extends Component {
                 <br />
                 <br />
                 <span>
-                  <a href={team["strWebsite"]}>Official Website</a>
+                  <a href={`https://${team["strWebsite"]}`} target="_blank">
+                    Official Website
+                  </a>
                 </span>
               </div>
 
