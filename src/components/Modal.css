@@ -12,3 +12,10 @@
   transition: all 0.3s ease-out;
   border: 1px solid black;
 }
+
+@media (max-width: 768px) {
+  .center-align h2,
+  .center-align h3 {
+    font-size: 16px;
+  }
+}
