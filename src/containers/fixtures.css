@@ -1,11 +1,11 @@
 .fixtures {
   display: flex;
-   flex-flow: row wrap;
-   justify-content: center;
-   flex-direction: column;
-   
-   margin: auto;
-   background: #fbf9f9;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex-direction: column;
+
+  margin: auto;
+  background: #fbf9f9;
 }
 
 .fixtures-container {
@@ -18,4 +18,10 @@
 
 .center-align {
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .fixtures-container {
+    width: 80%;
+  }
 }
