@@ -1,5 +1,5 @@
 .navigation {
-  color: #AABD8C;
+  color: #aabd8c;
   list-style: none;
 
   margin: 0;
@@ -9,18 +9,23 @@
   border-bottom: none;
   padding: 15px;
   text-decoration: none;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   color: rgb(20, 32, 83);
   transition: all 0.3s ease;
-
 }
 
 .navigation-link:hover {
-  color: #19A78E;
+  color: #19a78e;
 }
 
 .navbar {
   text-align: center;
   margin: 0;
   padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    font-size: 12px;
+  }
 }
