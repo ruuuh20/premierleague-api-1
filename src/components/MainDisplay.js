@@ -45,7 +45,7 @@ class MainDisplay extends Component {
     //     idSecondary: e.idTwo
     //   })
     // }
-    switch (nextProps) {
+    switch (nextProps.id) {
       case "133616": //tot
         this.setState({
           idSecondary: "47"
