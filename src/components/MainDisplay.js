@@ -61,7 +61,7 @@ class MainDisplay extends Component {
           idSecondary: "33"
         });
         break;
-      case "133599": //woles
+      case "133599": //wolves
         this.setState({
           idSecondary: "39"
         });
@@ -71,18 +71,87 @@ class MainDisplay extends Component {
           idSecondary: "46"
         });
         break;
+      case "134777": //newcastle
+        this.setState({
+          idSecondary: "34"
+        });
+        break;
+      case "134301": //bourne
+        this.setState({
+          idSecondary: "35"
+        });
+        break;
+      case "133624": //watford
+        this.setState({
+          idSecondary: "38"
+        });
+        break;
+      case "133602": //liv
+        this.setState({
+          idSecondary: "40"
+        });
+        break;
+      case "133636": //westham
+        this.setState({
+          idSecondary: "48"
+        });
+        break;
+      case "133608": //nor
+        this.setState({
+          idSecondary: "71"
+        });
+        break;
+      case "133613": //man city
+        this.setState({
+          idSecondary: "50"
+        });
+        break;
+      case "133811": //shf utd
+        this.setState({
+          idSecondary: "62"
+        });
+        break;
+      case "133623": //burn
+        this.setState({
+          idSecondary: "44"
+        });
+        break;
+      case "133632": //crys
+        this.setState({
+          idSecondary: "52"
+        });
+        break;
+      case "134778": //south
+        this.setState({
+          idSecondary: "41"
+        });
+        break;
+      case "133615": //eve
+        this.setState({
+          idSecondary: "45"
+        });
+        break;
+      case "133619": //bright
+        this.setState({
+          idSecondary: "51"
+        });
+        break;
+      case "133604": //ars
+        this.setState({
+          idSecondary: "42"
+        });
+        break;
+      case "133601": //aston
+        this.setState({
+          idSecondary: "66"
+        });
+        break;
 
       default:
         this.setState({
           idSecondary: null
         });
     }
-    // if (nextProps.id === "133610") {
-    //   //chelsea
-    //   this.setState({
-    //     idSecondary: "49"
-    //   });
-    // }
   };
 
   // componentDidUpdate(prevProps, prevState) {
