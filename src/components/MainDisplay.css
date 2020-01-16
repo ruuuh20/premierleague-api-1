@@ -90,10 +90,43 @@ span.pos {
 
 @media (max-width: 768px) {
   .main-row h1 {
-    font-size: 30px;
+    font-size: 24px;
   }
   .left,
   .right {
-    padding: 40px;
+    padding: 30px;
+  }
+
+  .team h4 {
+    font-size: 10px;
+  }
+
+  .page-row {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+
+  .badge p {
+    font-size: 14px;
+    letter-spacing: 0.5rem;
+  }
+
+  .squad-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  span.pos {
+    font-size: 10px;
+  }
+
+  .badge img {
+    width: 50px;
+  }
+
+  .row h4,
+  .competitions h4 {
+    font-size: 14px;
+    margin-top: 2rem;
   }
 }
