@@ -249,8 +249,10 @@ class MainDisplay extends Component {
                   ? "loading"
                   : this.state.squad.map(s => (
                       <div className="squad-list" key={s.id}>
-                        <span>{s.firstname}</span> |{" "}
-                        <span className="pos">{s.position}</span>
+                        <span>
+                          {s.firstname} {s.lastname}
+                        </span>{" "}
+                        | <span className="pos">{s.position}</span>
                       </div>
                     ))}
               </div>

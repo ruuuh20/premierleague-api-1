@@ -87,3 +87,13 @@ span.pos {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
+
+@media (max-width: 768px) {
+  .main-row h1 {
+    font-size: 30px;
+  }
+  .left,
+  .right {
+    padding: 40px;
+  }
+}
